@@ -1,0 +1,49 @@
+{###########################################################################}
+{##############################   ROW - LOGO SCROLLER   #############################}
+{###########################################################################}
+
+.hhs-logo-mod {position: relative;}
+
+/* Slider */
+.logo-item img {display: none;}
+.flickity-enabled img{ display: block;} {# /*  ADL */ #}
+
+{# /* BEGIN ADL */ #}
+.ourLogos-section{ padding:50px 0 90px; overflow:hidden;}
+.scrolling-logos.flickity-enabled .logo-item{ line-height:72px; text-align:center; outline: none; }
+.scrolling-logos.flickity-enabled .logo-item img {padding: 0 20px;}
+.scrolling-logos.flickity-enabled .logo-item img{ display:inline-block; vertical-align:middle;}
+
+.scrolling-logos .flickity-prev-next-button:focus{ outline: none;}
+.scrolling-logos .flickity-prev-next-button:hover{ opacity:0.4;}
+
+.scrolling-logos button.previous,
+.scrolling-logos button.next {
+   position: absolute;
+   top: 50%;
+   margin-top: -1%;
+}
+
+.scrolling-logos button.previous { 
+  left: -30px; 
+  transform: rotate(45deg);
+ }
+.scrolling-logos button.next { 
+  right: -30px; 
+  transform: rotate(-135deg);
+}
+.scrolling-logos button.previous svg,
+.scrolling-logos button.next svg {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .scrolling-logos button.previous,
+  .scrolling-logos button.next{ display: none !important;}
+}
+
+@media (max-width: 575px) {
+ .scrolling-logos.flickity-enabled .logo-item img {
+   padding: 0 10px;
+  }
+}

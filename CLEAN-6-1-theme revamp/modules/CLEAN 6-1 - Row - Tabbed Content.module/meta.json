@@ -1,0 +1,13 @@
+{
+  "global" : false,
+  "icon" : "https://f.hubspotusercontent30.net/hubfs/507386/CLEAN-images/module-icons/icon-tabbed-content.svg",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 63101141601,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/row-tabbed-content.css",
+    "name" : "row-tabbed-content.css"
+  } ],
+  "label" : "Row - Tabbed Content",
+  "is_available_for_new_content" : true
+}

@@ -1,0 +1,2615 @@
+[ {
+  "id" : "8e32beaa-bffc-dd97-76f9-eeabf124d7d6",
+  "name" : "start",
+  "display_width" : null,
+  "label" : "- START HERE ⇨",
+  "required" : false,
+  "locked" : true,
+  "children" : [ {
+    "id" : "c75c9542-89e3-e6be-704e-8bab049d8ba4",
+    "name" : "mega_menu",
+    "display_width" : null,
+    "label" : "Use Mega Menu:",
+    "help_text" : "There are additional steps required to set up the Mega Menu which you can find here:\n\n/www.helpfulhero.com/clean6/theme/docs",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "a6e9f6a7-7592-b17b-bb77-8a361f459e78",
+    "name" : "use_header_hat",
+    "display_width" : null,
+    "label" : "Use Header \"Hat\":",
+    "help_text" : "This is the slim navigation bar above the main nav that's great to include additional links.",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : true
+  }, {
+    "id" : "a8a231f8-bd44-46f7-8efc-c0c0b89f8f90",
+    "name" : "use_cta",
+    "display_width" : null,
+    "label" : "Include CTA:",
+    "help_text" : "This will add a CTA in the top right corner of the nav bar or hamburger menu. You will be able to disable it on a mobile device in a setting below.",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_value_regex" : null,
+      "operator" : "NOT_EMPTY",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : true
+  }, {
+    "id" : "dfc3fb19-73d7-466d-fa59-13cd270a59a6",
+    "name" : "use_search",
+    "display_width" : null,
+    "label" : "Include Site Search Icon:",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : true
+  }, {
+    "id" : "e48e5ab0-9731-8578-c8f2-18ed724e76cc",
+    "name" : "use_sticky_header",
+    "display_width" : null,
+    "label" : "Include Sticky Header",
+    "help_text" : "This is the slimmer navigation that will drop in as someone scrolls down the page.  This will not show on smaller mobile devices.",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : true
+  }, {
+    "id" : "1e53e71c-ced4-c416-98e1-2dea27e0caa4",
+    "name" : "logo",
+    "display_width" : null,
+    "label" : "///// Logo",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "ecbce3d4-a48f-ded7-bb51-7f3bfb7d2f67",
+      "name" : "standard",
+      "display_width" : null,
+      "label" : "Upload Your Logo (Primary Header):",
+      "help_text" : "Upload a version of your logo that will work on top of the background color you select for the header. If you are going with a transparent header, I highly suggest going with a clean white logo with a transparent background.",
+      "required" : false,
+      "locked" : false,
+      "type" : "logo",
+      "default" : {
+        "override_inherited_src" : true,
+        "src" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/gfx/CLEAN-logo-white.png",
+        "alt" : "CLEAN-logo-white",
+        "width" : 200,
+        "height" : 100
+      }
+    }, {
+      "id" : "d33f1ff6-2b6a-debc-7c22-9795a5383d19",
+      "name" : "sticky",
+      "display_width" : null,
+      "label" : "Upload Your Logo (Sticky Header):",
+      "help_text" : "Upload a version of your logo that will work on top of a white background. Typically, this will be the color version of your logo.",
+      "required" : false,
+      "locked" : false,
+      "type" : "logo",
+      "default" : {
+        "override_inherited_src" : true,
+        "src" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/gfx/CLEAN-logo-color-new.png",
+        "alt" : "CLEAN-logo-color-new",
+        "width" : 200,
+        "height" : 100
+      }
+    }, {
+      "id" : "269baae9-dab5-c60f-6df3-174f616f3912",
+      "name" : "link",
+      "display_width" : null,
+      "label" : "Logo Link:",
+      "help_text" : "What page do you want a visitor to be direct to when they click the logo?  Typically this is going to be your home page.",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "default" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "https://www.helpfulhero.com",
+          "content_id" : null
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }, {
+      "id" : "a83538a0-cb16-9a6c-50de-f77aa6d8bcf2",
+      "name" : "size_desktop",
+      "display_width" : null,
+      "label" : "Logo Size (Desktop):",
+      "help_text" : "This will give you the ability to set the max-width of the logo that's viewed on desktop.  The height of the logo will scale in proportion to the height.",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 10,
+      "max" : 300,
+      "step" : 1,
+      "type" : "number",
+      "default" : 100
+    }, {
+      "id" : "b102a201-7fc9-b1f9-89f0-aa1dc28985ba",
+      "name" : "size_sticky",
+      "display_width" : null,
+      "label" : "Logo Size (Sticky Desktop):",
+      "help_text" : "This will give you the ability to set the max-width of the logo that's viewed on desktop.  The height of the logo will scale in proportion to the height.",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 10,
+      "max" : 300,
+      "step" : 1,
+      "type" : "number",
+      "default" : 70
+    }, {
+      "id" : "ac29cad7-5a52-8d12-bf0b-4a9ea7d4b929",
+      "name" : "size_mobile",
+      "display_width" : null,
+      "label" : "Logo Size (Mobile):",
+      "help_text" : "This will give you the ability to set the max-width of the logo that's viewed on mobile. Typically, you're going to want this to be smaller. Especially if you select to show a CTA as well.",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 10,
+      "max" : 300,
+      "step" : 1,
+      "type" : "number",
+      "default" : 100
+    }, {
+      "id" : "62fb5f79-907e-9a7c-3ced-86b44c6b8dea",
+      "name" : "space_above_logo",
+      "display_width" : null,
+      "label" : "Space Above Logo",
+      "help_text" : "This will help you fine tune the alignment of your logo in relation to the navigation.",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 0,
+      "max" : 100,
+      "step" : 1,
+      "type" : "number",
+      "default" : 0
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "standard" : {
+        "override_inherited_src" : true,
+        "src" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/gfx/CLEAN-logo-white.png",
+        "alt" : "CLEAN-logo-white",
+        "width" : 200,
+        "height" : 100
+      },
+      "sticky" : {
+        "override_inherited_src" : true,
+        "src" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/gfx/CLEAN-logo-color-new.png",
+        "alt" : "CLEAN-logo-color-new",
+        "width" : 200,
+        "height" : 100
+      },
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "https://www.helpfulhero.com",
+          "content_id" : null
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      },
+      "size_desktop" : 100,
+      "size_sticky" : 70,
+      "size_mobile" : 100,
+      "space_above_logo" : 0
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "mega_menu" : false,
+    "use_header_hat" : true,
+    "use_cta" : true,
+    "use_search" : true,
+    "use_sticky_header" : true,
+    "logo" : {
+      "standard" : {
+        "override_inherited_src" : true,
+        "src" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/gfx/CLEAN-logo-white.png",
+        "alt" : "CLEAN-logo-white",
+        "width" : 200,
+        "height" : 100
+      },
+      "sticky" : {
+        "override_inherited_src" : true,
+        "src" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/gfx/CLEAN-logo-color-new.png",
+        "alt" : "CLEAN-logo-color-new",
+        "width" : 200,
+        "height" : 100
+      },
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "https://www.helpfulhero.com",
+          "content_id" : null
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      },
+      "size_desktop" : 100,
+      "size_sticky" : 70,
+      "size_mobile" : 100,
+      "space_above_logo" : 0
+    }
+  }
+}, {
+  "id" : "f2421959-dc6d-3d2d-3374-13b47fdbc747",
+  "name" : "menu",
+  "display_width" : null,
+  "label" : "///// Add Your Nav Elements Here",
+  "required" : false,
+  "locked" : true,
+  "children" : [ {
+    "id" : "3b8a816d-3e6f-0003-d0dd-78f9048bab60",
+    "name" : "adv_menu_default",
+    "display_width" : null,
+    "label" : "Main Nav Menu (Default Language):",
+    "required" : true,
+    "locked" : false,
+    "type" : "menu",
+    "default" : 6483257538
+  }, {
+    "id" : "e32e3852-631b-5de8-1f38-a564440b5130",
+    "name" : "hat_menu_default",
+    "display_width" : null,
+    "label" : "Header \"Hat\" Menu (Default Language):",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a6e9f6a7-7592-b17b-bb77-8a361f459e78",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "simplemenu",
+    "default" : [ {
+      "isPublished" : true,
+      "pageLinkId" : 8335029241,
+      "pageLinkName" : "CLEAN 5 - Module Library",
+      "isDeleted" : false,
+      "categoryId" : 1,
+      "subCategory" : "site_page",
+      "contentType" : "site_page",
+      "state" : "PUBLISHED_OR_SCHEDULED",
+      "linkLabel" : "Module Library",
+      "linkUrl" : null,
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "PAGE_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Documentation",
+      "linkUrl" : "https://www.hubspothero.com/clean-documentation",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Support",
+      "linkUrl" : "https://www.hubspothero.com/support",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : true,
+      "pageLinkId" : 6386706670,
+      "pageLinkName" : "CLEAN 5 - Style Guide",
+      "isDeleted" : false,
+      "categoryId" : 1,
+      "subCategory" : "site_page",
+      "contentType" : "site_page",
+      "state" : "PUBLISHED_OR_SCHEDULED",
+      "linkLabel" : "Style Guide",
+      "linkUrl" : null,
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "PAGE_LINK",
+      "children" : [ ]
+    } ]
+  }, {
+    "id" : "0e64e3f7-4bad-5353-fc02-ec3588488061",
+    "name" : "cta_default",
+    "display_width" : null,
+    "label" : "Select Your CTA",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a8a231f8-bd44-46f7-8efc-c0c0b89f8f90",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "cta",
+    "default" : "e87198d7-fe7f-45fd-8f8d-2265c6b1a169"
+  }, {
+    "id" : "1ee17cdc-c360-3130-b279-16d688639aca",
+    "name" : "header_cta_font_size",
+    "display_width" : null,
+    "label" : "Header CTA Font Size:",
+    "help_text" : "This gives you the ability to make the button in the header slightly different than your global settings.",
+    "required" : true,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a8a231f8-bd44-46f7-8efc-c0c0b89f8f90",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "slider",
+    "min" : 8,
+    "max" : 20,
+    "step" : 1,
+    "type" : "number",
+    "default" : 10
+  }, {
+    "id" : "47ac20a1-1f0d-9c68-2495-86cae0f06524",
+    "name" : "cta_padding_tb",
+    "display_width" : null,
+    "label" : "CTA - Padding Top/Bottom",
+    "help_text" : "This gives you the ability to make the button in the header slightly different than your global settings.",
+    "inline_help_text" : "This controls how tall the button is.",
+    "required" : true,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a8a231f8-bd44-46f7-8efc-c0c0b89f8f90",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "slider",
+    "min" : 5,
+    "max" : 30,
+    "step" : 1,
+    "type" : "number",
+    "default" : 15
+  }, {
+    "id" : "bc7aa73f-d1ff-e3ce-c694-c5cc92ba1346",
+    "name" : "cta_padding_rl",
+    "display_width" : null,
+    "label" : "CTA - Padding Right/Left",
+    "help_text" : "This gives you the ability to make the button in the header slightly different than your global settings.",
+    "inline_help_text" : "This controls how wide the button is.",
+    "required" : true,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a8a231f8-bd44-46f7-8efc-c0c0b89f8f90",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "slider",
+    "min" : 5,
+    "max" : 30,
+    "step" : 1,
+    "type" : "number",
+    "default" : 15
+  }, {
+    "id" : "b04279fd-23bd-a224-c857-a4f307692fab",
+    "name" : "show_cta_on_mobile",
+    "display_width" : null,
+    "label" : "Show CTA on Mobile",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a8a231f8-bd44-46f7-8efc-c0c0b89f8f90",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : true
+  }, {
+    "id" : "bb6459c4-139c-bf4c-0a34-518ae88d377c",
+    "name" : "translate",
+    "display_width" : null,
+    "label" : "Add Translated Elements:",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : true
+  }, {
+    "id" : "dfeb5718-3ba6-a48f-81f0-fe63f78c1547",
+    "name" : "default_lang_url",
+    "display_width" : null,
+    "label" : "Set Default Language URL abbreviation (Website/Landing Pages):)",
+    "help_text" : "This will need to be the same default language that you have set up in your content settings.  In most cases this is going to be English (en) in which you won't need to edit this. But if you've selected a different default language you'll want to add the URL abbreviation for that here.  For more info, check out the CLEAN documentation.",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "visibility" : {
+      "controlling_field" : "bb6459c4-139c-bf4c-0a34-518ae88d377c",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "en"
+  }, {
+    "id" : "c1e95e72-2195-a222-c4d0-d3c188d02f10",
+    "name" : "default_lang_url_blog",
+    "display_width" : null,
+    "label" : "Set Default Language URL abbreviation (Blog)",
+    "help_text" : "In many cases, you won't need to adjust this if your blog is in English. In some cases the \"language code\" that's generated for the blog may be different than what is set on website page. It's easy to check. For more info, head on over to www.hubspothero.com/clean6/documentation to see how.",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "visibility" : {
+      "controlling_field" : "bb6459c4-139c-bf4c-0a34-518ae88d377c",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "en-us"
+  }, {
+    "id" : "fec505ee-b2b7-c356-4079-01f1f357da21",
+    "name" : "translated_menus",
+    "display_width" : null,
+    "label" : "Translated Elements:",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 2
+    },
+    "visibility" : {
+      "controlling_field" : "bb6459c4-139c-bf4c-0a34-518ae88d377c",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "children" : [ {
+      "id" : "35f94b8e-2b38-1bd2-e8a8-143c7f45306f",
+      "name" : "lang_url",
+      "display_width" : null,
+      "label" : "What is the Language's URL abbreviation? (EX: fr for French)",
+      "help_text" : "This is an important step to get right.  You can find the Language URL when creating any translated page once you've selected the Language.",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "visibility" : {
+        "controlling_field" : "bb6459c4-139c-bf4c-0a34-518ae88d377c",
+        "controlling_value_regex" : "true",
+        "operator" : "EQUAL",
+        "access" : null,
+        "hidden_subfields" : null
+      },
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "default" : "fr"
+    }, {
+      "id" : "e25016a1-f212-3ace-dc30-f736aa408656",
+      "name" : "adv_menu_translated",
+      "display_width" : null,
+      "label" : "Select the Translated Menu:",
+      "required" : true,
+      "locked" : false,
+      "type" : "menu",
+      "default" : 10229973436
+    }, {
+      "id" : "d8d60284-d604-0967-d2c2-eb4c69b6c1ed",
+      "name" : "hat_menu_translated",
+      "display_width" : null,
+      "label" : "Header \"Hat\" Menu",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : "a6e9f6a7-7592-b17b-bb77-8a361f459e78",
+        "controlling_value_regex" : "true",
+        "operator" : "EQUAL",
+        "access" : null,
+        "hidden_subfields" : null
+      },
+      "type" : "simplemenu",
+      "default" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "French Test",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    }, {
+      "id" : "03962269-a854-d10a-072c-deb6b80a34bf",
+      "name" : "cta_translated",
+      "display_width" : null,
+      "label" : "CTA (Translated):",
+      "required" : false,
+      "locked" : false,
+      "type" : "cta",
+      "default" : "f59e0682-54e3-4bfe-8f86-08939fbceee2"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : [ {
+      "lang_url" : "fr",
+      "adv_menu_translated" : 10229973436,
+      "hat_menu_translated" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "French Test",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ],
+      "cta_translated" : "f59e0682-54e3-4bfe-8f86-08939fbceee2"
+    }, {
+      "lang_url" : "es",
+      "adv_menu_translated" : 5519328129,
+      "hat_menu_translated" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Spanish Test",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    } ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "adv_menu_default" : 6483257538,
+    "hat_menu_default" : [ {
+      "isPublished" : true,
+      "pageLinkId" : 8335029241,
+      "pageLinkName" : "CLEAN 5 - Module Library",
+      "isDeleted" : false,
+      "categoryId" : 1,
+      "subCategory" : "site_page",
+      "contentType" : "site_page",
+      "state" : "PUBLISHED_OR_SCHEDULED",
+      "linkLabel" : "Module Library",
+      "linkUrl" : null,
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "PAGE_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Documentation",
+      "linkUrl" : "https://www.hubspothero.com/clean-documentation",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Support",
+      "linkUrl" : "https://www.hubspothero.com/support",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : true,
+      "pageLinkId" : 6386706670,
+      "pageLinkName" : "CLEAN 5 - Style Guide",
+      "isDeleted" : false,
+      "categoryId" : 1,
+      "subCategory" : "site_page",
+      "contentType" : "site_page",
+      "state" : "PUBLISHED_OR_SCHEDULED",
+      "linkLabel" : "Style Guide",
+      "linkUrl" : null,
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "PAGE_LINK",
+      "children" : [ ]
+    } ],
+    "cta_default" : "e87198d7-fe7f-45fd-8f8d-2265c6b1a169",
+    "header_cta_font_size" : 10,
+    "cta_padding_tb" : 15,
+    "cta_padding_rl" : 15,
+    "show_cta_on_mobile" : true,
+    "translate" : true,
+    "default_lang_url" : "en",
+    "default_lang_url_blog" : "en-us",
+    "translated_menus" : [ {
+      "lang_url" : "fr",
+      "adv_menu_translated" : 10229973436,
+      "hat_menu_translated" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "French Test",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ],
+      "cta_translated" : "f59e0682-54e3-4bfe-8f86-08939fbceee2"
+    }, {
+      "lang_url" : "es",
+      "adv_menu_translated" : 5519328129,
+      "hat_menu_translated" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Spanish Test",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    } ]
+  }
+}, {
+  "id" : "13ecff5e-d720-dd8b-d153-fb74cb7a2300",
+  "name" : "style",
+  "display_width" : null,
+  "label" : "///// Style Options",
+  "required" : false,
+  "locked" : true,
+  "children" : [ {
+    "id" : "47c009d3-952b-11d2-8bb2-be5e4b13b53e",
+    "name" : "header_bg_color",
+    "display_width" : null,
+    "label" : "Standard Header Background Color:",
+    "help_text" : "If you'd like a transparent background just set the opacity to 0%. Or a solid color set it to 100%. ",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#000000",
+      "opacity" : 0
+    }
+  }, {
+    "id" : "df39dd4e-8a94-87cd-554b-26bac3f674ce",
+    "name" : "nav_link_color",
+    "display_width" : null,
+    "label" : "Standard Nav Link Color:",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#FFFFFF",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "2f2b4260-e55b-f73d-134b-2b554d9203fb",
+    "name" : "nav_link_color_hover",
+    "display_width" : null,
+    "label" : "Standard Nav Link Color (Hover):",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#EEEEEE",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "3155f222-fdf9-1ea3-3161-d0dd2d90cf5c",
+    "name" : "sticky_header_bg_color",
+    "display_width" : null,
+    "label" : "Sticky Header Background Color:",
+    "help_text" : "I suggest using a solid color so that it remains readable as it will scroll over other content on the page.",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#FFFFFF",
+      "opacity" : 90
+    }
+  }, {
+    "id" : "77b45914-e823-a6b7-9b6b-b7847dbf044a",
+    "name" : "sticky_nav_link_color",
+    "display_width" : null,
+    "label" : "Sticky Nav Link Color:",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#444444",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "f7eae314-1a68-6bf8-beb3-ed23bab1c0da",
+    "name" : "sticky_nav_link_color_hover",
+    "display_width" : null,
+    "label" : "Sticky Nav Link Color (Hover):",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#000000",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "aeb4de4d-7232-51fe-b9f7-df0236b838c8",
+    "name" : "header_width",
+    "display_width" : null,
+    "label" : "Header Width:",
+    "required" : true,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "container", "Standard" ], [ "container-fluid", "Full" ], [ "container-slim", "Slim" ], [ "custom", "Custom" ] ],
+    "type" : "choice",
+    "default" : "container-fluid"
+  }, {
+    "id" : "7d039ef0-314d-e11f-d5e6-888002d93c76",
+    "name" : "set_width",
+    "display_width" : null,
+    "label" : "Set Width:",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "aeb4de4d-7232-51fe-b9f7-df0236b838c8",
+      "controlling_value_regex" : "custom",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "slider",
+    "min" : 100,
+    "max" : 1600,
+    "step" : 1,
+    "type" : "number",
+    "default" : 600
+  }, {
+    "id" : "cf2d2f16-95f3-ffb7-d7bb-da1ccf30d421",
+    "name" : "standard_tb_padding",
+    "display_width" : null,
+    "label" : "Top & Bottom Padding (Standard Header):",
+    "required" : false,
+    "locked" : false,
+    "display" : "slider",
+    "min" : 0,
+    "max" : 50,
+    "step" : 1,
+    "type" : "number",
+    "default" : 10
+  }, {
+    "id" : "3de23f17-0184-c68a-ef4e-fc3468249979",
+    "name" : "nav_spacing",
+    "display_width" : null,
+    "label" : "Spacing Between Nav Links (Top Level):",
+    "help_text" : "This will give you the power to increase or decrease the spacing between each Link in the navigation bar.",
+    "required" : false,
+    "locked" : false,
+    "display" : "slider",
+    "min" : 0,
+    "max" : 50,
+    "step" : 1,
+    "type" : "number",
+    "default" : 5
+  }, {
+    "id" : "94c2ed25-30ae-f267-3a3d-08bafab9bf4d",
+    "name" : "header_height",
+    "display_width" : null,
+    "label" : "Header Height (Standard):",
+    "help_text" : "This will set the height of the standard menu bar.  The logo and nav items will adjust center accordingly. Note: The height will not go below than the height of your logo even if you set it that way. Play with the size of the logo to dial in the perfect height for you.",
+    "required" : false,
+    "locked" : false,
+    "display" : "slider",
+    "min" : 30,
+    "max" : 150,
+    "step" : 1,
+    "type" : "number",
+    "default" : 60
+  }, {
+    "id" : "69b8e303-8009-58b9-5405-93f0c1b61f41",
+    "name" : "header_height_sticky",
+    "display_width" : null,
+    "label" : "Header Height (Sticky):",
+    "help_text" : "This will set the height of the sticky menu bar.  The logo and nav items will adjust center accordingly. Note: The height will not go below than the height of your logo even if you set it that way. Play with the size of the logo to dial in the perfect height for you.",
+    "required" : false,
+    "locked" : false,
+    "display" : "slider",
+    "min" : 30,
+    "max" : 100,
+    "step" : 1,
+    "type" : "number",
+    "default" : 30
+  }, {
+    "id" : "d76ce9eb-6094-98c8-cb24-d07a19abcdab",
+    "name" : "hat_bg_color",
+    "display_width" : null,
+    "label" : "Header \"Hat\" Background Color:",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a6e9f6a7-7592-b17b-bb77-8a361f459e78",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "color",
+    "default" : {
+      "color" : "#33475b",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "d80fef8b-ba58-3093-3009-b008662edce2",
+    "name" : "hat_font_size",
+    "display_width" : null,
+    "label" : "\"Hat\" Font Size:",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a6e9f6a7-7592-b17b-bb77-8a361f459e78",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "slider",
+    "min" : 8,
+    "max" : 16,
+    "step" : 1,
+    "type" : "number",
+    "default" : 10
+  }, {
+    "id" : "04bf4d76-6d22-d2c4-8664-6ae4ab730be5",
+    "name" : "hat_custom_link_color",
+    "display_width" : null,
+    "label" : "\"Hat\" Custom Link Color:",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : true
+  }, {
+    "id" : "3cf6b15d-496f-2db3-244f-cb30a59b27f3",
+    "name" : "hat_link_color",
+    "display_width" : null,
+    "label" : "\"Hat\" Link Color:",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "04bf4d76-6d22-d2c4-8664-6ae4ab730be5",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "color",
+    "default" : {
+      "color" : "#00a4bd",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "8c66b477-deac-44eb-c9bc-33a5ec04f5d4",
+    "name" : "hat_link_color_hover",
+    "display_width" : null,
+    "label" : "\"Hat\" Link Color (Hover):",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "04bf4d76-6d22-d2c4-8664-6ae4ab730be5",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "color",
+    "default" : {
+      "color" : "#FFFFFF",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "b7908407-ef02-e8a8-17af-b3ecc5cd0035",
+    "name" : "search_field_button_bg_color",
+    "display_width" : null,
+    "label" : "Search Field Button Background Color",
+    "inline_help_text" : "This controls the background color of the button next to the search input field.",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "dfc3fb19-73d7-466d-fa59-13cd270a59a6",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "color",
+    "default" : {
+      "color" : "#ff7a59",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "ea4c75ed-f330-d481-734e-a6c9a1fb9265",
+    "name" : "search_button_icon_color",
+    "display_width" : null,
+    "label" : "Search Field Button Icon Color",
+    "inline_help_text" : "This controls the icon color of the button next to the search input field.",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "dfc3fb19-73d7-466d-fa59-13cd270a59a6",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "color",
+    "default" : {
+      "color" : "#FFFFFF",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "f89e3d2f-e9c0-28c0-6be4-871c7759e36e",
+    "name" : "drop_down",
+    "display_width" : null,
+    "label" : "///// Drop Down Menu",
+    "help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "cd0a1a70-46b9-e800-ca98-af0c44ec1f88",
+      "name" : "bg_color",
+      "display_width" : null,
+      "label" : "Background Color:",
+      "help_text" : "This will give you the option to select the background color of the drop down menu on both desktop and mobile.  ",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#FFFFFF",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "1eb85f9e-1155-daf1-ca80-7c5b10b9ff2e",
+      "name" : "link_color",
+      "display_width" : null,
+      "label" : "Link Color:",
+      "help_text" : "This will give you the option to select the text color of the drop down menu items on both desktop and mobile.  ",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#444444",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "87adbc72-755c-86e4-8d89-8c46ae7d6465",
+      "name" : "dd_mt",
+      "display_width" : null,
+      "label" : "Drop Down Menu (Margin top):",
+      "help_text" : "Use this setting to fine tune the position of the mobile dropdown menu according to the height of your navigation bar.",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 0,
+      "max" : 50,
+      "step" : 1,
+      "type" : "number",
+      "default" : 10
+    }, {
+      "id" : "0baeab5a-8928-ee7b-efca-f7cf18b1f4be",
+      "name" : "sub_nav_bg_hover",
+      "display_width" : null,
+      "label" : "Sub Nav Background Color (Hover):",
+      "help_text" : "This is the background color that will appear when you hover over a sub nav item in the dropdown menu on desktop.",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#00a4bd",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "771423cb-0d8e-7bb3-3684-7c21eef500c8",
+      "name" : "sub_nav_text_hover",
+      "display_width" : null,
+      "label" : "Sub Nav Text Color (Hover):",
+      "help_text" : "This is the background color that will appear when you hover over a sub nav item in the dropdown menu on desktop.",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#fff",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "42efab29-6e54-6d83-9f71-b01d313210fa",
+      "name" : "font_size",
+      "display_width" : null,
+      "label" : "Font Size:",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 10,
+      "max" : 24,
+      "step" : 1,
+      "type" : "number",
+      "default" : 12
+    }, {
+      "id" : "6d614e05-1193-8536-7317-ceb6b0355a38",
+      "name" : "sub_nav_line_color",
+      "display_width" : null,
+      "label" : "Sub Nav Line & Background Color Tone",
+      "help_text" : "Use this depending on the background color you select for the drop down nav.  This will show up when viewing the mobile menu.",
+      "required" : true,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "dark", "Dark" ], [ "light", "Light" ] ],
+      "type" : "choice",
+      "default" : "dark"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "bg_color" : {
+        "color" : "#FFFFFF",
+        "opacity" : 100
+      },
+      "link_color" : {
+        "color" : "#444444",
+        "opacity" : 100
+      },
+      "dd_mt" : 10,
+      "sub_nav_bg_hover" : {
+        "color" : "#00a4bd",
+        "opacity" : 100
+      },
+      "sub_nav_text_hover" : {
+        "color" : "#fff",
+        "opacity" : 100
+      },
+      "font_size" : 12,
+      "sub_nav_line_color" : "dark"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "header_bg_color" : {
+      "color" : "#000000",
+      "opacity" : 0
+    },
+    "nav_link_color" : {
+      "color" : "#FFFFFF",
+      "opacity" : 100
+    },
+    "nav_link_color_hover" : {
+      "color" : "#EEEEEE",
+      "opacity" : 100
+    },
+    "sticky_header_bg_color" : {
+      "color" : "#FFFFFF",
+      "opacity" : 90
+    },
+    "sticky_nav_link_color" : {
+      "color" : "#444444",
+      "opacity" : 100
+    },
+    "sticky_nav_link_color_hover" : {
+      "color" : "#000000",
+      "opacity" : 100
+    },
+    "header_width" : "container-fluid",
+    "set_width" : 600,
+    "standard_tb_padding" : 10,
+    "nav_spacing" : 5,
+    "header_height" : 60,
+    "header_height_sticky" : 30,
+    "hat_bg_color" : {
+      "color" : "#33475b",
+      "opacity" : 100
+    },
+    "hat_font_size" : 10,
+    "hat_custom_link_color" : true,
+    "hat_link_color" : {
+      "color" : "#00a4bd",
+      "opacity" : 100
+    },
+    "hat_link_color_hover" : {
+      "color" : "#FFFFFF",
+      "opacity" : 100
+    },
+    "search_field_button_bg_color" : {
+      "color" : "#ff7a59",
+      "opacity" : 100
+    },
+    "search_button_icon_color" : {
+      "color" : "#FFFFFF",
+      "opacity" : 100
+    },
+    "drop_down" : {
+      "bg_color" : {
+        "color" : "#FFFFFF",
+        "opacity" : 100
+      },
+      "link_color" : {
+        "color" : "#444444",
+        "opacity" : 100
+      },
+      "dd_mt" : 10,
+      "sub_nav_bg_hover" : {
+        "color" : "#00a4bd",
+        "opacity" : 100
+      },
+      "sub_nav_text_hover" : {
+        "color" : "#fff",
+        "opacity" : 100
+      },
+      "font_size" : 12,
+      "sub_nav_line_color" : "dark"
+    }
+  }
+}, {
+  "id" : "f6c6d813-9d6e-419a-3934-06076cdff433",
+  "name" : "mega_menu",
+  "display_width" : null,
+  "label" : "///// Mega Menu Style",
+  "help_text" : "",
+  "required" : false,
+  "locked" : true,
+  "visibility" : {
+    "controlling_field" : "c75c9542-89e3-e6be-704e-8bab049d8ba4",
+    "controlling_value_regex" : "true",
+    "operator" : "EQUAL",
+    "access" : null,
+    "hidden_subfields" : null
+  },
+  "children" : [ {
+    "id" : "ae1e22f5-fa1c-2952-54a4-1e5c6882cb4f",
+    "name" : "style",
+    "display_width" : null,
+    "label" : "Style Options",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "2ac90e0f-1244-602a-92e9-fa412870d333",
+      "name" : "bg_color",
+      "display_width" : null,
+      "label" : "Background Color:",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#ffffff",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "e1d9773a-c509-564c-2778-89e4ef064a10",
+      "name" : "pos_top",
+      "display_width" : null,
+      "label" : "Position from Top (Standard):",
+      "help_text" : "This is going to help you fine tune where the mega menu drops in based on the height of your STANDARD header bar.",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 0,
+      "max" : 300,
+      "step" : 1,
+      "type" : "number",
+      "default" : 110
+    }, {
+      "id" : "704810a9-0912-220d-64b2-a0eca9cd8651",
+      "name" : "pos_top_sticky",
+      "display_width" : null,
+      "label" : "Position from Top (Sticky):",
+      "help_text" : "This is going to help you fine tune where the mega menu drops in based on the height of your STICK header bar. This will likely be smaller than your STANDARD header.",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 0,
+      "max" : 300,
+      "step" : 1,
+      "type" : "number",
+      "default" : 70
+    }, {
+      "id" : "488b8bbf-5c0f-7b89-3afc-6aaa9534d811",
+      "name" : "header_color",
+      "display_width" : null,
+      "label" : "Header Color:",
+      "help_text" : "Some of the mega menus include a header (h2, h3, h4, h5, etc.). This gives you the option to select the color you want to use.",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#444444",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "c6abf036-55da-00d5-cd53-b7bff68d4b03",
+      "name" : "text_color",
+      "display_width" : null,
+      "label" : "Body Text Color:",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#444444",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "f1e96856-0dd6-8a5f-8b3c-598c8f2eb9ca",
+      "name" : "link_color",
+      "display_width" : null,
+      "label" : "Link Color:",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#444444",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "f3f929c1-c83c-73e0-39e1-68f811d3d6b8",
+      "name" : "link_color_hover",
+      "display_width" : null,
+      "label" : "Link Color (Hover):",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#00a4bd",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "a69fe4c9-dcb2-83e2-60f6-6957562599c1",
+      "name" : "link_font_size",
+      "display_width" : null,
+      "label" : "Link Font Size:",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 8,
+      "max" : 24,
+      "step" : 1,
+      "type" : "number",
+      "default" : 16
+    }, {
+      "id" : "a68b5936-e504-0dca-db72-d93b58434f37",
+      "name" : "link_font_weight",
+      "display_width" : null,
+      "label" : "Link Font Weight:",
+      "required" : true,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "thin", "Thin" ], [ "normal", "Normal" ], [ "bold", "Bold" ] ],
+      "type" : "choice",
+      "default" : "normal"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "bg_color" : {
+        "color" : "#ffffff",
+        "opacity" : 100
+      },
+      "pos_top" : 110,
+      "pos_top_sticky" : 70,
+      "header_color" : {
+        "color" : "#444444",
+        "opacity" : 100
+      },
+      "text_color" : {
+        "color" : "#444444",
+        "opacity" : 100
+      },
+      "link_color" : {
+        "color" : "#444444",
+        "opacity" : 100
+      },
+      "link_color_hover" : {
+        "color" : "#00a4bd",
+        "opacity" : 100
+      },
+      "link_font_size" : 16,
+      "link_font_weight" : "normal"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "style" : {
+      "bg_color" : {
+        "color" : "#ffffff",
+        "opacity" : 100
+      },
+      "pos_top" : 110,
+      "pos_top_sticky" : 70,
+      "header_color" : {
+        "color" : "#444444",
+        "opacity" : 100
+      },
+      "text_color" : {
+        "color" : "#444444",
+        "opacity" : 100
+      },
+      "link_color" : {
+        "color" : "#444444",
+        "opacity" : 100
+      },
+      "link_color_hover" : {
+        "color" : "#00a4bd",
+        "opacity" : 100
+      },
+      "link_font_size" : 16,
+      "link_font_weight" : "normal"
+    }
+  }
+}, {
+  "id" : "8d8871c8-08ff-dfe7-1a94-92bb5b421a56",
+  "name" : "mega_menu_group",
+  "display_width" : null,
+  "label" : "//// Add/Edit Your Mega Menus",
+  "required" : false,
+  "locked" : true,
+  "occurrence" : {
+    "min" : null,
+    "max" : 10,
+    "sorting_label_field" : "fd4bc3c8-6d7c-00c5-42a1-8047ffe8bcd3",
+    "default" : null
+  },
+  "visibility" : {
+    "controlling_field" : "c75c9542-89e3-e6be-704e-8bab049d8ba4",
+    "controlling_value_regex" : "true",
+    "operator" : "EQUAL",
+    "access" : null,
+    "hidden_subfields" : null
+  },
+  "children" : [ {
+    "id" : "fd4bc3c8-6d7c-00c5-42a1-8047ffe8bcd3",
+    "name" : "mega_menu_name",
+    "display_width" : null,
+    "label" : "Mega Menu Name:",
+    "help_text" : "This is only to help you organized the list of mega menus. It will not display in the mega menu.",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Mega Menu 1"
+  }, {
+    "id" : "25790a3b-ef6d-b15d-f8a1-3918f68d6a18",
+    "name" : "num_cols",
+    "display_width" : null,
+    "label" : "How Many Columns Do You Want?",
+    "required" : true,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "2", "Two" ], [ "3", "Three" ], [ "4", "Four" ] ],
+    "type" : "choice",
+    "default" : "4"
+  }, {
+    "id" : "b15521de-97a3-e7a7-8ec7-f0c1aaf0b7be",
+    "name" : "two_col_arrangement",
+    "display_width" : null,
+    "label" : "Column Arrangement",
+    "required" : true,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "25790a3b-ef6d-b15d-f8a1-3918f68d6a18",
+      "controlling_value_regex" : "2",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "select",
+    "choices" : [ [ "opt1", "6 | 6" ], [ "opt2", "4 | 8" ], [ "opt3", "8 | 4" ], [ "opt4", "5 | 7" ], [ "opt5", "7 | 5" ] ],
+    "type" : "choice",
+    "default" : "opt1"
+  }, {
+    "id" : "c8006139-2547-00f4-e2d6-5fc2fad49c3a",
+    "name" : "three_col_arrangement",
+    "display_width" : null,
+    "label" : "Column Arrangement",
+    "required" : true,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "25790a3b-ef6d-b15d-f8a1-3918f68d6a18",
+      "controlling_value_regex" : "3",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "select",
+    "choices" : [ [ "opt1", "4 | 4 | 4" ], [ "opt2", "6 | 3 | 3" ], [ "opt3", "3 | 3 | 6" ], [ "opt4", "3 | 6 | 3" ], [ "opt5", "8 | 2 | 2" ], [ "opt6", "2 | 2 | 8" ], [ "opt7", "2 | 8 | 2" ] ],
+    "type" : "choice",
+    "default" : "opt1"
+  }, {
+    "id" : "dabfdec7-d201-8d2f-0f63-84f45d4259bb",
+    "name" : "four_col_arrangement",
+    "display_width" : null,
+    "label" : "Column Arrangement",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "25790a3b-ef6d-b15d-f8a1-3918f68d6a18",
+      "controlling_value_regex" : "4",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "select",
+    "choices" : [ [ "opt1", "3 | 3 | 3 | 3" ], [ "opt2", "6 | 2 | 2 | 2" ], [ "opt3", "2 | 2 | 2 | 6" ], [ "opt4", "5 | 3 | 2 | 2" ], [ "opt5", "2 | 2 | 3 | 5" ] ],
+    "type" : "choice",
+    "default" : "opt1"
+  }, {
+    "id" : "f1851e51-f96c-4fc9-1cd5-6ce43585730b",
+    "name" : "col_1",
+    "display_width" : null,
+    "label" : "Column 1:",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "7e7dd3d6-e6ea-7118-d7d2-70ed5ca8e402",
+      "name" : "text",
+      "display_width" : null,
+      "label" : "Rich Text:",
+      "help_text" : "If you don't want text, simply leave this blank.",
+      "required" : false,
+      "locked" : false,
+      "type" : "richtext",
+      "default" : "<h5>Column Headline</h5>"
+    }, {
+      "id" : "dd11fa1d-9443-06d0-5544-34ac5e22523c",
+      "name" : "menu",
+      "display_width" : null,
+      "label" : "Menu:",
+      "required" : false,
+      "locked" : false,
+      "type" : "simplemenu",
+      "default" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "text" : "<h5>Column Headline</h5>",
+      "menu" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    }
+  }, {
+    "id" : "5d530c5e-f54f-6c77-cab6-f6ead4859f4c",
+    "name" : "col_2",
+    "display_width" : null,
+    "label" : "Column 2:",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "dbc52606-28a9-23ca-0133-5c5b2d05c592",
+      "name" : "text",
+      "display_width" : null,
+      "label" : "Rich Text:",
+      "help_text" : "If you don't want text, simply leave this blank.",
+      "required" : false,
+      "locked" : false,
+      "type" : "richtext",
+      "default" : "<h5>Column Headline</h5>"
+    }, {
+      "id" : "6abf2db3-ba82-0912-a565-0b4047cd3732",
+      "name" : "menu",
+      "display_width" : null,
+      "label" : "Menu:",
+      "required" : false,
+      "locked" : false,
+      "type" : "simplemenu",
+      "default" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "text" : "<h5>Column Headline</h5>",
+      "menu" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    }
+  }, {
+    "id" : "3336ab4c-a6c1-bf15-09ff-b82df7f1afd4",
+    "name" : "col_3",
+    "display_width" : null,
+    "label" : "Column 3:",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "25790a3b-ef6d-b15d-f8a1-3918f68d6a18",
+      "controlling_value_regex" : "[34]",
+      "operator" : "MATCHES_REGEX",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "children" : [ {
+      "id" : "48168904-dcf9-21b2-671c-eca4675c5cfd",
+      "name" : "text",
+      "display_width" : null,
+      "label" : "Rich Text:",
+      "help_text" : "If you don't want text, simply leave this blank.",
+      "required" : false,
+      "locked" : false,
+      "type" : "richtext",
+      "default" : "<h5>Column Headline</h5>"
+    }, {
+      "id" : "42c8c572-2a0a-5be3-02eb-aeb1a3035bd9",
+      "name" : "menu",
+      "display_width" : null,
+      "label" : "Menu:",
+      "required" : false,
+      "locked" : false,
+      "type" : "simplemenu",
+      "default" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "text" : "<h5>Column Headline</h5>",
+      "menu" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    }
+  }, {
+    "id" : "3fe9b51e-a2bc-db33-3f4a-2fc224c245b8",
+    "name" : "col_4",
+    "display_width" : null,
+    "label" : "Column 4:",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "25790a3b-ef6d-b15d-f8a1-3918f68d6a18",
+      "controlling_value_regex" : "4",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "children" : [ {
+      "id" : "905e3035-99fc-73e1-ef55-978f36d74b81",
+      "name" : "text",
+      "display_width" : null,
+      "label" : "Rich Text:",
+      "help_text" : "If you don't want text, simply leave this blank.",
+      "required" : false,
+      "locked" : false,
+      "type" : "richtext",
+      "default" : "<h5>Column Headline</h5>"
+    }, {
+      "id" : "638acf27-1ac9-a5eb-3654-e82139fa4434",
+      "name" : "menu",
+      "display_width" : null,
+      "label" : "Menu:",
+      "required" : false,
+      "locked" : false,
+      "type" : "simplemenu",
+      "default" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "text" : "<h5>Column Headline</h5>",
+      "menu" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "mega_menu_name" : "Mega Menu 1",
+    "num_cols" : "4",
+    "two_col_arrangement" : "opt1",
+    "three_col_arrangement" : "opt1",
+    "four_col_arrangement" : "opt1",
+    "col_1" : {
+      "text" : "<h5>Column Headline</h5>",
+      "menu" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    },
+    "col_2" : {
+      "text" : "<h5>Column Headline</h5>",
+      "menu" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    },
+    "col_3" : {
+      "text" : "<h5>Column Headline</h5>",
+      "menu" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    },
+    "col_4" : {
+      "text" : "<h5>Column Headline</h5>",
+      "menu" : [ {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 1",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 1",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        }, {
+          "isPublished" : false,
+          "pageLinkId" : null,
+          "pageLinkName" : null,
+          "isDeleted" : null,
+          "categoryId" : null,
+          "subCategory" : null,
+          "contentType" : null,
+          "state" : null,
+          "linkLabel" : "Sub Nav 2",
+          "linkUrl" : null,
+          "linkParams" : null,
+          "linkTarget" : null,
+          "type" : "NO_LINK",
+          "children" : [ ]
+        } ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 2",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      }, {
+        "isPublished" : false,
+        "pageLinkId" : null,
+        "pageLinkName" : null,
+        "isDeleted" : null,
+        "categoryId" : null,
+        "subCategory" : null,
+        "contentType" : null,
+        "state" : null,
+        "linkLabel" : "Testing 3",
+        "linkUrl" : null,
+        "linkParams" : null,
+        "linkTarget" : null,
+        "type" : "NO_LINK",
+        "children" : [ ]
+      } ]
+    }
+  }
+} ]

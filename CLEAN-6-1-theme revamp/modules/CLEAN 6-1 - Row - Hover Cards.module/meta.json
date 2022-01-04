@@ -1,0 +1,13 @@
+{
+  "global" : false,
+  "icon" : "https://f.hubspotusercontent30.net/hubfs/507386/CLEAN-images/module-icons/icon-hover-cards.svg",
+  "host_template_types" : [ "PAGE", "BLOG_POST", "BLOG_LISTING" ],
+  "module_id" : 63101141603,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/row-hover-cards.css",
+    "name" : "row-hover-cards.css"
+  } ],
+  "label" : "Row - Hover Cards",
+  "is_available_for_new_content" : true
+}

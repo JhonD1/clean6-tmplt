@@ -1,0 +1,30 @@
+{
+  "global" : false,
+  "icon" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/module-icons/icon-image-grid.svg",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 63101094980,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/3rd-party/simple-lightbox.css",
+    "name" : "simple-lightbox.css"
+  }, {
+    "autoload" : true,
+    "path" : "../../css/modules/row-masonry-grid-gallery.css",
+    "name" : "row-masonry-grid-gallery.css"
+  } ],
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../js/isotope.js",
+    "name" : "isotope.js"
+  }, {
+    "autoload" : true,
+    "path" : "../../js/images-loaded.js",
+    "name" : "images-loaded.js"
+  }, {
+    "autoload" : true,
+    "path" : "../../js/simple-lightbox.js",
+    "name" : "simple-lightbox.js"
+  } ],
+  "label" : "Row - Masonry Image Gallery",
+  "is_available_for_new_content" : true
+}

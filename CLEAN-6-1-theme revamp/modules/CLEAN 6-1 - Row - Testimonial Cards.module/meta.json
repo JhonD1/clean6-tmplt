@@ -1,0 +1,13 @@
+{
+  "global" : false,
+  "icon" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/module-icons/icon-testimonial-cards.svg",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 63101094972,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/row-testimonial-cards.css",
+    "name" : "row-testimonial-cards.css"
+  } ],
+  "label" : "Row - Testimonial Cards",
+  "is_available_for_new_content" : true
+}

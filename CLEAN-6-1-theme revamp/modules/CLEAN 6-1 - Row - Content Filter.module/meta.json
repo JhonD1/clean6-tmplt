@@ -1,0 +1,18 @@
+{
+  "global" : false,
+  "icon" : "https://f.hubspotusercontent30.net/hubfs/507386/CLEAN-images/module-icons/icon-content-filter-opt-2.svg",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 63101744691,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/row-content-filter-opt1.css",
+    "name" : "row-content-filter-opt1.css"
+  } ],
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../js/isotope.js",
+    "name" : "isotope.js"
+  } ],
+  "label" : "Row - Content Filter - Opt 1",
+  "is_available_for_new_content" : true
+}

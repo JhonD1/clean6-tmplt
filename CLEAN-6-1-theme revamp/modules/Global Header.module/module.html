@@ -1,0 +1,803 @@
+
+
+{% require_css %}
+<style>
+  .hhs-header-mod {
+    background-color: rgba({{ module.style.header_bg_color.color|convert_rgb }}, {% if module.style.header_bg_color.opacity == '100' %}1{% else %}0.{{ module.style.header_bg_color.opacity }}{% endif %});
+    padding: {{ module.style.standard_tb_padding }}px 0; 
+  }
+  .hhs-header-mod.hhs-alt-nav .logo-sticky,
+  .logo-standard  {
+    max-width: {{ module.start.logo.size_desktop }}px;
+    float: left;
+  }
+  .hhs-header-mod.hhs-alt-nav.sticky-menu.active .logo-sticky,
+  .logo-sticky  {
+    max-width: {{ module.start.logo.size_sticky }}px;
+    float: left;
+  }
+  
+  .hhs-header-logo {
+    padding-top:  {{ module.start.logo.space_above_logo }}px;
+  }
+  
+  .hhs-header-mod .hhs-nav {
+    height: {{ module.style.header_height }}px;
+    display: table;
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul > li {
+    margin-left: {{ module.style.nav_spacing }}px !important;
+  }
+  .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a,
+  .hhs-header-search a i{
+    color: rgba({{ module.style.nav_link_color.color|convert_rgb }}, {% if module.style.nav_link_color.opacity == '100' %}1{% else %}0.{{ module.style.nav_link_color.opacity }}{% endif %}) !important;
+  }
+  .hhs-lang-switch .globe_class:before{
+    color: rgba({{ module.style.nav_link_color.color|convert_rgb }}, {% if module.style.nav_link_color.opacity == '100' %}1{% else %}0.{{ module.style.nav_link_color.opacity }}{% endif %}) !important;
+  }
+  .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a:hover,
+  .hhs-header-search a i:hover,
+  .hhs-lang-switch .globe_class:hover{
+    color: rgba({{ module.style.nav_link_color_hover.color|convert_rgb }}, {% if module.style.nav_link_color_hover.opacity == '100' %}1{% else %}0.{{ module.style.nav_link_color_hover.opacity }}{% endif %}) !important;
+  }
+  
+  .lang_list_class li,
+  .custom-menu-primary .hs-menu-wrapper > ul ul{
+     background: rgba({{  module.style.drop_down.bg_color.color|convert_rgb }}, {% if  module.style.drop_down.bg_color.opacity == '100' %}1{% else %}0.{{  module.style.drop_down.bg_color.opacity }}{% endif %}) !important;
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul > li > ul:before{
+     color: rgba({{  module.style.drop_down.bg_color.color|convert_rgb }}, {% if  module.style.drop_down.bg_color.opacity == '100' %}1{% else %}0.{{  module.style.drop_down.bg_color.opacity }}{% endif %}) !important;
+  }
+  .hhs-lang-switch .lang_list_class:after {
+   border-bottom-color: rgba({{  module.style.drop_down.bg_color.color|convert_rgb }}, {% if  module.style.drop_down.bg_color.opacity == '100' %}1{% else %}0.{{  module.style.drop_down.bg_color.opacity }}{% endif %}) !important;
+  }
+  .hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children ul.hs-menu-children-wrapper li a,
+  .hhs-lang-switch .lang_list_class li a {
+    color: {{ module.style.drop_down.link_color.color }} !important;
+    font-size: {{ module.style.drop_down.font_size }}px !important;
+  }
+  .hhs-lang-switch .lang_list_class li a:hover,
+  .custom-menu-primary .hs-menu-wrapper > ul ul li a:hover {
+   background-color:  {{ module.style.drop_down.sub_nav_bg_hover.color }};
+  }
+  
+  .hhs-header-mod.hhs-alt-nav .hhs-header-menu .hs-menu-wrapper > ul li.hs-item-has-children ul.hs-menu-children-wrapper li a:hover,
+  .hhs-lang-switch .lang_list_class li a:hover,
+  .custom-menu-primary .hs-menu-wrapper > ul li.hs-item-has-children ul.hs-menu-children-wrapper li a:hover {
+   color: {{ module.style.drop_down.sub_nav_text_hover.color }} !important;
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul li.hs-item-has-children ul.hs-menu-children-wrapper li.active a:hover {
+    color: {{ module.style.drop_down.link_color.color }} !important;
+  }
+  
+  .hhs-search-modal button {
+   background-color:  rgba({{ module.style.search_field_button_bg_color.color|convert_rgb }}, {% if module.style.search_field_button_bg_color.opacity == '100' %}1{% else %}0.{{  module.style.search_field_button_bg_color.opacity }}{% endif %}) !important;
+  }
+  .hhs-search-modal button i {
+   color:  rgba({{ module.style.search_button_icon_color.color|convert_rgb }}, {% if module.style.search_button_icon_color.opacity == '100' %}1{% else %}0.{{  module.style.search_button_icon_color.opacity }}{% endif %}) !important;
+  }
+  
+  
+  /*** MOBILE HAMBURGER ***/
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after,
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::before,
+  .hamburger.is-active .hamburger-inner::after {
+    background-color: rgba({{ module.style.nav_link_color.color|convert_rgb }}, {% if module.style.nav_link_color.opacity == '100' %}1{% else %}0.{{ module.style.nav_link_color.opacity }}{% endif %}); 
+  }
+  
+  /*** STICKY HEADER ***/
+  .hhs-header-mod.hhs-alt-nav.sticky-menu,
+  .hhs-header-mod.sticky-menu,
+  .hhs-header-mod.hhs-alt-nav{
+    background-color: rgba({{ module.style.sticky_header_bg_color.color|convert_rgb }}, {% if module.style.sticky_header_bg_color.opacity == '100' %}1{% else %}0.{{ module.style.sticky_header_bg_color.opacity }}{% endif %});
+  }
+  .sticky-menu.active {
+    background-color: rgba({{ module.style.sticky_header_bg_color.color|convert_rgb }}, {% if module.style.sticky_header_bg_color.opacity == '100' %}1{% else %}0.{{ module.style.sticky_header_bg_color.opacity }}{% endif %});
+  }
+  .hhs-header-mod.hhs-alt-nav .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a,
+  .hhs-header-mod.hhs-alt-nav .hhs-header-search a i,
+  .hhs-header-mod.hhs-alt-nav .hhs-lang-switch .globe_class:before,
+  .sticky-menu .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a,
+  .sticky-menu .hhs-header-search a i,
+  .sticky-menu .hhs-lang-switch .globe_class:before{
+    color: rgba({{ module.style.sticky_nav_link_color.color|convert_rgb }}, {% if module.style.sticky_nav_link_color.opacity == '100' %}1{% else %}0.{{ module.style.sticky_nav_link_color.opacity }}{% endif %}) !important;
+  }
+  .hhs-header-mod.hhs-alt-nav .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal .hs-menu-depth-1:first-child:hover,
+  .hhs-header-mod.hhs-alt-nav .hhs-header-search a i:hover,
+  .hhs-header-mod.hhs-alt-nav .hhs-lang-switch .globe_class:before,
+  .sticky-menu .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal .hs-menu-depth-1:first-child:hover,
+  .sticky-menu .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a:hover,
+  .sticky-menu .hhs-header-search a i:hover{
+    color: rgba({{ module.style.sticky_nav_link_color_hover.color|convert_rgb }}, {% if module.style.sticky_nav_link_color_hover.opacity == '100' %}1{% else %}0.{{ module.style.sticky_nav_link_color_hover.opacity }}{% endif %})  !important;
+  }
+  
+  .hhs-header-mod.hhs-alt-nav .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a,
+  .hhs-header-mod.hhs-alt-nav .hhs-header-search a i,
+  .hhs-header-mod.hhs-alt-nav .globe_class {
+    color: rgba({{ module.style.sticky_nav_link_color.color|convert_rgb }}, {% if module.style.sticky_nav_link_color.opacity == '100' %}1{% else %}0.{{ module.style.sticky_nav_link_color_hover.opacity }}{% endif %}) !important;
+  }
+  
+  .hhs-header-mod.hhs-alt-nav .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a:hover,
+  .hhs-header-mod.hhs-alt-nav .hhs-header-search a i:hover,
+  .hhs-header-mod.hhs-alt-nav .globe_class:hover {
+    color: rgba({{ module.style.sticky_nav_link_color_hover.color|convert_rgb }}, {% if module.style.sticky_nav_link_color_hover.opacity == '100' %}1{% else %}0.{{ module.style.sticky_nav_link_color_hover.opacity }}{% endif %}) !important;
+  }
+  
+  
+  .hhs-header-mod.hhs-alt-nav .hamburger-inner, .hhs-header-mod.hhs-alt-nav .hamburger-inner::before, .hhs-header-mod.hhs-alt-nav .hamburger-inner::after,
+  .hhs-header-mod.hhs-alt-nav .hamburger.is-active .hamburger-inner,
+  .hhs-header-mod.hhs-alt-nav .hamburger.is-active .hamburger-inner::before,
+  .hhs-header-mod.hhs-alt-nav .hamburger.is-active .hamburger-inner::after,
+  .sticky-menu .hamburger-inner, .sticky-menu .hamburger-inner::before, .sticky-menu .hamburger-inner::after,
+  .sticky-menu .hamburger.is-active .hamburger-inner,
+  .sticky-menu .hamburger.is-active .hamburger-inner::before,
+  .sticky-menu .hamburger.is-active .hamburger-inner::after {
+    background-color: rgba({{ module.style.sticky_nav_link_color_hover.color|convert_rgb }}, {% if module.style.sticky_nav_link_color_hover.opacity == '100' %}1{% else %}0.{{ module.style.sticky_nav_link_color_hover.opacity }}{% endif %}); 
+  }
+  .hhs-header-mod.sticky-menu .hhs-nav {
+    height: {{ module.style.header_height_sticky }}px;
+  }
+  
+  
+  .hhs-hat-pull-down,
+  .hhs-header-hat {
+   background-color: {{ module.style.hat_bg_color.color }}; 
+  }
+  .hhs-hat-pull-down i,
+  .hhs-hat-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a {
+   font-size: {{ module.style.hat_font_size }}px !important;
+    {% if module.style.hat_custom_link_color %}
+      color: rgba({{ module.style.hat_link_color.color|convert_rgb }}, {% if module.style.hat_link_color.opacity == '100' %}1{% else %}0.{{ module.style.hat_link_color.opacity }}{% endif %}) !important;
+    {% endif %}
+  }
+  {% if module.style.hat_custom_link_color %}
+    .hhs-hat-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a:hover {
+     color: rgba({{ module.style.hat_link_color_hover.color|convert_rgb }}, {% if module.style.hat_link_color_hover.opacity == '100' %}1{% else %}0.{{ module.style.hat_link_color_hover.opacity }}{% endif %}) !important;
+    }
+  {% endif %}
+  
+  .hhs-header-cta .cta-primary {
+    padding: {{ module.menu.cta_padding_tb }}px {{ module.menu.cta_padding_rl }}px !important;
+    font-size: {{ module.menu.header_cta_font_size }}px !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
+  /*** MEGA MENU ***/
+  {% if module.start.mega_menu %}
+  .mega-menu {
+    background-color: rgba({{ module.mega_menu.style.bg_color.color|convert_rgb }}, {% if module.mega_menu.style.bg_color.opacity == '100' %}1{% else %}0.{{ module.mega_menu.style.bg_color.opacity }}{% endif %});
+    top: {{ module.mega_menu.style.pos_top }}px;
+  }
+  .sticky-menu.active .mega-menu  {
+    top: {{ module.mega_menu.style.pos_top_sticky }}px;
+  }
+  .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li .mega-menu a,
+  .hhs-alt-nav .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li .mega-menu a,
+  .hhs-header-menu .mega-menu .mega-nav-con ul li ul.hs-menu-children-wrapper li a,
+  .hhs-alt-nav .hhs-header-menu .mega-menu .mega-nav-con ul li ul.hs-menu-children-wrapper li a{
+    color: {{ module.mega_menu.style.link_color.color }} !important;
+    font-size: {{ module.mega_menu.style.link_font_size }}px !important;
+    font-weight: {{ module.mega_menu.style.link_font_weight }};
+  }
+  .hhs-header-menu .mega-menu .mega-nav-con ul li ul.hs-menu-children-wrapper li a{
+    font-size: 0.95em !important;
+  }
+  .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li .mega-menu a:hover,
+  .hhs-alt-nav .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li .mega-menu a:hover,
+  .hhs-header-menu .mega-menu .mega-nav-con ul li ul.hs-menu-children-wrapper li a:hover,
+  .hhs-alt-nav .hhs-header-menu .mega-menu .mega-nav-con ul li ul.hs-menu-children-wrapper li a:hover{
+    color: {{ module.mega_menu.style.link_color_hover.color }} !important;
+  }
+  .mega-menu span.hs_cos_wrapper_type_text {
+    text-transform: none !important;
+    font-weight: normal !important;
+    white-space: normal !important; 
+  }
+  .mega-menu .mega-text-con p, .mega-menu .mega-text-con li, .mega-menu .mega-text-con span {
+    color: {{ module.mega_menu.style.text_color.color }}; 
+  }
+  .mega-menu .mega-text-con h1, .mega-menu .mega-text-con h2, .mega-menu .mega-text-con h3, .mega-menu .mega-text-con h4, .mega-menu .mega-text-con h5, .mega-menu .mega-text-con h6 {
+    color: {{ module.mega_menu.style.header_color.color }}; 
+  }
+  
+  {% endif %}
+  
+   /** TABLET CSS **/
+  @media (max-width: 768px) {
+    .custom-menu-primary .hs-menu-wrapper > ul {
+       margin-top: {{ module.style.drop_down.dd_mt }}px !important;
+    }
+    .custom-menu-primary .hs-menu-wrapper > ul,
+    .custom-menu-primary .hs-menu-wrapper > ul li.active a:hover{
+      background-color:  rgba({{  module.style.drop_down.bg_color.color|convert_rgb }}, {% if  module.style.drop_down.bg_color.opacity == '100' %}1{% else %}0.{{  module.style.drop_down.bg_color.opacity }}{% endif %}) !important;
+    }
+    .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a:hover,
+    .custom-menu-primary .hs-menu-wrapper > ul li.active a:hover,
+    .hhs-header-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li a {
+      color:  {{ module.style.drop_down.link_color.color }} !important;
+    }
+    .custom-menu-primary .hs-menu-wrapper > ul li{
+      {% if module.style.drop_down.sub_nav_line_color == 'dark' %}
+        border-top: 1px solid rgba(0, 0, 0, .1) !important; 
+      {% else %}
+        border-top: 1px solid rgba(255, 255, 255, .2) !important; 
+      {% endif %}
+    }
+    .custom-menu-primary .hs-menu-wrapper > ul ul li{
+      {% if module.style.drop_down.sub_nav_line_color == 'dark' %}
+        background-color: rgba(0, 0, 0, .05);
+      {% else %}
+        background-color: rgba(255, 255, 255, .15);
+      {% endif %}
+    }
+  }
+  
+  /** MOBILE CSS **/
+  @media (max-width: 575px) {
+    .logo-standard, .logo-sticky {
+      max-width: {{ module.start.logo.size_mobile }}px !important;
+    }
+    {% if !module.start.use_header_hat %}
+      .hhs-nav-opt-items .hhs-header-search {
+        right: 3px;
+      }
+      .hhs-nav-opt-items .hhs-lang-switch
+       {
+        right: 33px;
+      }
+    {% else %}
+      .hhs-nav-opt-items .hhs-header-search {
+        right: 40px;
+      }
+      .hhs-nav-opt-items .hhs-lang-switch
+       {
+        right: 70px;
+      }
+    {% endif %}
+  }
+  
+</style>
+{% end_require_css %}
+
+{% require_js %} 
+<script defer>
+  {% if module.start.use_sticky_header %}
+    // THIS IS FOR THE STICKY HEADER
+    $(function() {
+        //caches a jQuery object containing the header element
+        var header = $(".hhs-header-mod");
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 100) {
+                header.addClass("sticky-menu");
+            } else {
+                header.removeClass('sticky-menu');
+            }
+        });
+    });
+    $(window).scroll(function(){
+
+      // Variables
+      var $body = $(".sticky-menu");
+      var windowScrollTop = $(window).scrollTop();
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 100) {
+        $body.addClass("active");
+      } else {
+        $body.removeClass('active');
+      }
+    });
+  {% endif %}
+ 
+  {% if module.start.use_header_hat %}
+  function toggleNav() {
+    const element = document.querySelector("nav");
+    const elementHeight = element.scrollHeight;
+    var isCollapsed = element.getAttribute('data-collapsed') === 'true';
+    if (isCollapsed) {
+      element.style.height = elementHeight + "px";
+      element.setAttribute("data-collapsed", "false");
+    } else {
+      element.style.height = "0px";
+      element.setAttribute("data-collapsed", "true");
+    }
+    $('.hhs-hat-pull-down').toggleClass('is-open');
+    $('.hhs-hat-menu').toggleClass('is-open');
+  }
+  {% endif %}
+  
+  {% if module.start.mega_menu %}
+    jQuery(document).ready(function($) {
+      if (window.hsInEditor) {
+        return;
+      }
+      // show mega menu
+      megaMenu(768);
+    });
+  {% endif %}
+</script>
+{% end_require_js %}
+
+{% set href = module.start.logo.link.url.href %}
+
+
+{% if module.start.use_header_hat %}
+<div class="hhs-header-hat">
+ <div class="{{ module.style.header_width }}" {% if module.style.header_width == 'custom' %}style="max-width:{{ module.style.set_width }}px;"{% endif %}>
+   <div class="row">
+     <div class="col-12">
+       <nav class="hhs-hat-menu" data-collapsed="true">
+         {% if module.menu.translate %}
+            {% for item in module.menu.translated_menus %}
+              {% if item.lang_url == i18n_getlanguage() %}
+                {% simple_menu menu_tree="{{ item.hat_menu_translated }}" %}
+              {% endif %}
+            {% endfor %}
+           {% if i18n_getlanguage() == module.menu.default_lang_url or i18n_getlanguage() == module.menu.default_lang_url_blog %}
+              {% simple_menu menu_tree="{{ module.menu.hat_menu_default }}" %}
+           {% endif %}
+         {% else %}
+          {% simple_menu menu_tree="{{ module.menu.hat_menu_default }}" %}
+         {% endif %}
+       </nav>
+       <a href="javascript:void(0);" onclick="toggleNav()" class="hhs-hat-pull-down hide-desktop show-mobile"><i class="fas fa-angle-double-down"></i><i class="fas fa-angle-double-up"></i></a>
+     </div>
+   </div>
+ </div>
+</div>
+{% endif %}
+<div id="hhs-main-nav" class="hhs-header-mod">
+  <div class="{{ module.style.header_width }}" {% if module.style.header_width == 'custom' %}style="max-width:{{ module.style.set_width }}px;"{% endif %}>
+    <div class="row">
+      <div class="col-12 hhs-nav hhs-clearfix">
+        <a href="{{ href }}" style="display: inline-block;" {% if module.start.logo.link.open_in_new_tab %}target="_blank"{% endif %} {% if module.start.logo.link.no_follow %}rel="nofollow"{% endif %}>
+          <div class="hhs-header-logo">
+            <div class="logo-standard">
+              <img src="{{ module.start.logo.standard.src }}" alt="{{ module.start.logo.standard.alt }}" width="{{ module.start.logo.standard.width }}" height="{{ module.start.logo.standard.height }}" />
+            </div>
+            {% if module.start.use_sticky_header %}
+              <div class="logo-sticky">
+                <img src="{{ module.start.logo.sticky.src }}" alt="{{ module.start.logo.sticky.alt }}" width="{{ module.start.logo.sticky.width }}" height="{{ module.start.logo.sticky.height }}" />
+              </div>
+            {% endif %}
+          </div>
+        </a>
+          <div class="hhs-nav-opt-items">
+            {% if module.start.use_cta %}
+              <div class="hhs-header-cta {% if module.menu.show_cta_on_mobile == 'false' %}hide-mobile{% endif %}">
+                {% if module.menu.translate %}
+                  {% for item in module.menu.translated_menus %}
+                    {% if item.lang_url == i18n_getlanguage() %}
+                      {% cta guid="{{ item.cta_translated }}" %}
+                    {% endif %}
+                  {% endfor %}
+                  {% if i18n_getlanguage() == module.menu.default_lang_url or i18n_getlanguage() == module.menu.default_lang_url_blog %}
+                    {% cta guid="{{ module.menu.cta_default }}" %}
+                  {% endif %}
+                {% else %}
+                  {% cta guid="{{ module.menu.cta_default }}" %}
+                {% endif %}
+              </div>
+            {% endif %}
+            {% if module.start.use_search %}
+              <div class="hhs-header-search">
+                <a href="#tmp{{ name }}" rel="modal:open" ><i class="fas fa-search"></i></a>
+              </div>
+            {% endif %}
+            <div class="hhs-lang-switch">
+              {% language_switcher "language_switcher" overrideable=false, display_mode='localized', label='Language Switcher' %}
+            </div>
+            <div class="hhs-header-menu custom-menu-primary">
+              {#  /* BEGIN ADL */ #}
+              {% macro render_link_item(link,depth)%}
+                {% if link != [] && link.label %}
+                  <li class="hs-menu-item hs-menu-depth-{{depth}} {{'hs-item-has-children' if link.children}} {{'active' if link.activeNode}} {{'sub-active' if sublink.activeNode}} {{'active-branch' if sublink.activeBranch}}" aria-role="none" {{'aria-haspopup="true"' if link.children}}>
+                    <a href="{{link.url if link.url else '#'}}" aria-role="menuitem" target="{{link.linkTarget}}">{{link.label}}</a>
+                    {% if link.children %}
+                    <ul class="hs-menu-children-wrapper" aria-role="menu">
+                      {% set depth = depth + 1%}
+                      {% for sublink in link.children %}
+                      {{render_link_item(sublink,depth)}}
+                      {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </li>
+                {% endif %}
+              {% endmacro %}
+              {#  /* END ADL */ #}
+              
+              {% if module.menu.translate %}
+                {% for item in module.menu.translated_menus %}
+                  {% if item.lang_url == i18n_getlanguage() %}
+                  {#  /* BEGIN ADL */ #}
+                  <nav class="sc-site-header__menu sc-site-header__menu--{{ item.adv_menu_translated }} hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" aria-label="{{menu_name}} menu">
+                      {% set menu = menu(item.adv_menu_translated , "site_root").children %}
+                      <ul class="hhs-nav-links" aria-role="menubar">
+                      {% for link in menu %}
+                        {{render_link_item(link,1)}}
+                      {% endfor %}
+                      </ul>
+                  </nav>
+                  {#  /* END ADL */ #}
+                  {% endif %}
+                {% endfor %}
+                {% if i18n_getlanguage() == module.menu.default_lang_url or i18n_getlanguage() == module.menu.default_lang_url_blog %}
+                {#  /* BEGIN ADL */ #}
+                <nav class="sc-site-header__menu sc-site-header__menu--{{ module.menu.adv_menu_default }} hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" aria-label="{{menu_name}} menu">
+                    {% set menu = menu(module.menu.adv_menu_default , "site_root").children %}
+                    <ul class="hhs-nav-links" aria-role="menubar">
+                    {% for link in menu %}
+                      {{render_link_item(link,1)}}
+                    {% endfor %}
+                    </ul>
+                </nav> 
+                {#  /* END ADL */ #}
+                {% endif %}
+              {% else %}
+              {#  /* BEGIN ADL */ #}
+                <nav class="sc-site-header__menu sc-site-header__menu--{{ module.menu.adv_menu_default }} hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" aria-label="{{menu_name}} menu">
+                    {% set menu = menu(module.menu.adv_menu_default , "site_root").children %}
+                    <ul aria-role="menubar">
+                    {% for link in menu %}
+                      {{render_link_item(link,1)}}
+                    {% endfor %}
+                    </ul>
+                </nav>
+                {#  /* END ADL */ #}
+              {% endif %}
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% if module.start.use_search %}
+{% require_js %}
+  <script defer>
+  var hsSearch = function(_instance) {
+    var TYPEAHEAD_LIMIT			= 3;
+    var searchTerm      		= "",
+        searchForm 					=	_instance,
+        searchField 				= _instance.querySelector('.hs-search-field__input'),
+        searchResults 			= _instance.querySelector('.hs-search-field__suggestions'),
+        searchOptions				= function() {
+          var formParams = [];
+          var form = _instance.querySelector('form');
+          for ( var i = 0; i < form.querySelectorAll('input[type=hidden]').length; i++ ) {
+             var e = form.querySelectorAll('input[type=hidden]')[i];
+              if (e.name !== 'limit') {
+                formParams.push(encodeURIComponent(e.name) + "=" + encodeURIComponent(e.value));
+              }
+          }
+          var queryString = formParams.join("&");
+          return queryString;
+        };
+
+    var debounce = function(func, wait, immediate) {
+      var timeout;
+      return function() {
+        var context = this,
+            args = arguments;
+        var later = function() { 
+          timeout = null;
+          if ( !immediate ) {
+            func.apply(context, args);
+          }
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait || 200);
+        if ( callNow ) { 
+          func.apply(context, args); 
+        }
+      };
+    },
+    emptySearchResults = function(){
+      searchResults.innerHTML = '';
+      searchField.focus();
+      searchForm.classList.remove('hs-search-field--open');
+    },
+    fillSearchResults = function(response){
+      var items = [];
+      items.push( "<li id='results-for'>Results for \"" + response.searchTerm + "\"</li>" );
+      response.results.forEach(function(val, index) {
+        items.push( "<li id='result" + index + "'><a href='" + val.url + "'>" + val.title + "</a></li>" );
+      });
+
+      emptySearchResults();
+      searchResults.innerHTML = items.join("");
+      searchForm.classList.add('hs-search-field--open');
+    },
+    getSearchResults = function() {
+        var request = new XMLHttpRequest();
+        var requestUrl = "/_hcms/search?&term="+encodeURIComponent(searchTerm)+"&limit="+encodeURIComponent(TYPEAHEAD_LIMIT)+"&autocomplete=true&analytics=true&" + searchOptions();
+
+        request.open('GET', requestUrl, true);
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            var data = JSON.parse(request.responseText);
+            if (data.total > 0) {
+              fillSearchResults(data);
+              trapFocus();      
+            }
+            else {
+              emptySearchResults();
+            }
+          } else {
+            console.error('Server reached, error retrieving results.');
+          }
+        };
+        request.onerror = function() {
+          console.error('Could not reach the server.');
+        };
+        request.send();
+      },
+    trapFocus = function(){
+      var tabbable = [];
+      tabbable.push(searchField);
+      var tabbables = searchResults.getElementsByTagName('A');
+      for (var i = 0; i < tabbables.length; i++) {
+        tabbable.push(tabbables[i]);
+      }
+      var firstTabbable = tabbable[0],
+          lastTabbable  = tabbable[tabbable.length-1];
+      var tabResult = function(e){
+        if (e.target == lastTabbable && !e.shiftKey) {
+          e.preventDefault();
+          firstTabbable.focus();   		
+        }
+        else if (e.target == firstTabbable && e.shiftKey) {
+          e.preventDefault();
+          lastTabbable.focus();
+        } 
+      },
+      nextResult = function(e) {
+        e.preventDefault();
+        if (e.target == lastTabbable) {
+          firstTabbable.focus();
+        }
+        else {
+          tabbable.forEach(function(el){
+            if (el == e.target) {
+              tabbable[tabbable.indexOf(el) + 1].focus();
+            }
+          });
+        }
+      },
+      lastResult = function(e) {
+        e.preventDefault();
+        if (e.target == firstTabbable) {
+          lastTabbable.focus();
+        }
+        else {
+          tabbable.forEach(function(el){
+            if (el == e.target) {
+              tabbable[tabbable.indexOf(el) - 1].focus();
+            }
+          });
+        }
+      };
+      searchForm.addEventListener('keydown', function(e){
+        switch (e.which) {
+          case 9:
+            tabResult(e);
+            break;
+          case 27:
+            emptySearchResults();
+            break;
+          case 38:
+            lastResult(e);
+            break;
+          case 40:
+            nextResult(e);
+            break;
+        }
+      });      
+    },
+    isSearchTermPresent = debounce(function() {
+      searchTerm = searchField.value;
+      if(searchTerm.length > 2) {
+        getSearchResults();
+      }    
+      else if (searchTerm.length == 0)  {
+        emptySearchResults(); 
+      }
+    }, 250),
+    init = (function(){
+      searchField.addEventListener('input', function(e) {
+        if ((e.which != 9) && (e.which != 40) && (e.which != 38) && (e.which != 27) && (searchTerm != searchField.value)) {
+          isSearchTermPresent();
+        }
+      });
+    })();
+  }
+
+  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+    var searchResults = document.querySelectorAll('.hs-search-field');
+    Array.prototype.forEach.call(searchResults, function(el){
+      var hsSearchModule = hsSearch(el);
+    });
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      var searchResults = document.querySelectorAll('.hs-search-field');
+      Array.prototype.forEach.call(searchResults, function(el){
+        var hsSearchModule = hsSearch(el);
+      });
+    });
+  }
+  </script>
+  {% end_require_js %}
+  <div class="hhs-pop">
+    <div id="tmp{{ name }}" class="hhs-pop hhs-modal  hhs-search-modal wow fadeInDown" style="display: none;">
+      <div class="hhs-col-12">
+        <div class="hs-search-field"> 
+          <div class="hs-search-field__bar"> 
+            <form action="/{{ site_settings.content_search_results_page_path }}">
+              <input type="text" class="hs-search-field__input" name="term" autocomplete="off" placeholder="Search...">
+              <input type="hidden" name="type" value="SITE_PAGE">
+              <input type="hidden" name="type" value="LANDING_PAGE">
+              <input type="hidden" name="type" value="BLOG_POST">
+              <input type="hidden" name="type" value="LISTING_PAGE">
+              <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+
+
+{% if module.start.mega_menu %}
+
+  {% for item in module.mega_menu_group %}
+    {% if item.num_cols == '2' %}
+      {% if item.two_col_arrangement == 'opt1' %}
+        {% set col_size_1 = "col-6" %}
+        {% set col_size_2 = "col-6" %}
+      {% endif %}
+      {% if item.two_col_arrangement == 'opt2' %}
+        {% set col_size_1 = "col-4" %}
+        {% set col_size_2 = "col-8" %}
+      {% endif %}
+      {% if item.two_col_arrangement == 'opt3' %}
+        {% set col_size_1 = "col-8" %}
+        {% set col_size_2 = "col-4" %}
+      {% endif %}
+      {% if item.two_col_arrangement == 'opt4' %}
+        {% set col_size_1 = "col-5" %}
+        {% set col_size_2 = "col-7" %}
+      {% endif %}
+      {% if item.two_col_arrangement == 'opt5' %}
+        {% set col_size_1 = "col-7" %}
+        {% set col_size_2 = "col-5" %}
+      {% endif %}
+    {% endif %}
+    {% if item.num_cols == '3' %}
+      {% if item.three_col_arrangement == 'opt1' %}
+        {% set col_size_1 = "col-4" %}
+        {% set col_size_2 = "col-4" %}
+        {% set col_size_3 = "col-4" %}
+      {% endif %}
+      {% if item.three_col_arrangement == 'opt2' %}
+        {% set col_size_1 = "col-6" %}
+        {% set col_size_2 = "col-3" %}
+        {% set col_size_3 = "col-3" %}
+      {% endif %}
+      {% if item.three_col_arrangement == 'opt3' %}
+        {% set col_size_1 = "col-3" %}
+        {% set col_size_2 = "col-3" %}
+        {% set col_size_3 = "col-6" %}
+      {% endif %}
+      {% if item.three_col_arrangement == 'opt4' %}
+        {% set col_size_1 = "col-3" %}
+        {% set col_size_2 = "col-6" %}
+        {% set col_size_3 = "col-3" %}
+      {% endif %}
+      {% if item.three_col_arrangement == 'opt5' %}
+        {% set col_size_1 = "col-8" %}
+        {% set col_size_2 = "col-2" %}
+        {% set col_size_3 = "col-2" %}
+      {% endif %}
+      {% if item.three_col_arrangement == 'opt6' %}
+        {% set col_size_1 = "col-2" %}
+        {% set col_size_2 = "col-2" %}
+        {% set col_size_3 = "col-8" %}
+      {% endif %}
+      {% if item.three_col_arrangement == 'opt7' %}
+        {% set col_size_1 = "col-2" %}
+        {% set col_size_2 = "col-8" %}
+        {% set col_size_3 = "col-2" %}
+      {% endif %}
+    {% endif %}
+    {% if item.num_cols == '4' %}
+      {% if item.four_col_arrangement == 'opt1' %}
+        {% set col_size_1 = "col-3" %}
+        {% set col_size_2 = "col-3" %}
+        {% set col_size_3 = "col-3" %}
+        {% set col_size_4 = "col-3" %}
+      {% endif %}
+      {% if item.four_col_arrangement == 'opt2' %}
+        {% set col_size_1 = "col-6" %}
+        {% set col_size_2 = "col-2" %}
+        {% set col_size_3 = "col-2" %}
+        {% set col_size_4 = "col-2" %}
+      {% endif %}
+      {% if item.four_col_arrangement == 'opt3' %}
+        {% set col_size_1 = "col-2" %}
+        {% set col_size_2 = "col-2" %}
+        {% set col_size_3 = "col-2" %}
+        {% set col_size_4 = "col-6" %}
+      {% endif %}
+      {% if item.four_col_arrangement == 'opt4' %}
+        {% set col_size_1 = "col-5" %}
+        {% set col_size_2 = "col-3" %}
+        {% set col_size_3 = "col-2" %}
+        {% set col_size_4 = "col-2" %}
+      {% endif %}
+      {% if item.four_col_arrangement == 'opt5' %}
+        {% set col_size_1 = "col-2" %}
+        {% set col_size_2 = "col-2" %}
+        {% set col_size_3 = "col-3" %}
+        {% set col_size_4 = "col-5" %}
+      {% endif %}
+    {% endif %}
+
+
+    <div class="mega-menu-{{ loop.index }} mega-menu">
+      <div class="">
+        <div class="container">
+          <div class="row">
+            <div class="{{ col_size_1 }}">
+              <div class="mega-text-con">
+                {% inline_rich_text field="col_1.text" value="{{ item.col_1.text }}" %}
+              </div>
+              <div class="mega-nav-con">          
+                {% simple_menu menu_tree="{{ item.col_1.menu }}" %}
+              </div>
+            </div>
+            <div class="{{ col_size_2 }}">
+              <div class="mega-text-con">
+                {% inline_rich_text field="col_2.text" value="{{ item.col_2.text }}" %}
+              </div>
+              <div class="mega-nav-con">          
+                {% simple_menu menu_tree="{{ item.col_2.menu }}" %}
+              </div>
+            </div>
+            {% if item.num_cols >= '3' %}
+              <div class="{{ col_size_3 }}">
+                <div class="mega-text-con">
+                  {% inline_rich_text field="col_3.text" value="{{ item.col_3.text }}" %}
+                </div>
+                <div class="mega-nav-con">          
+                  {% simple_menu menu_tree="{{ item.col_3.menu }}" %}
+                </div>
+              </div>
+            {% endif %}
+            {% if item.num_cols >= '4' %}
+              <div class="{{ col_size_4 }}">
+                <div class="mega-text-con">
+                  {% inline_rich_text field="col_4.text" value="{{ item.col_4.text }}" %}
+                </div>
+                <div class="mega-nav-con">          
+                  {% simple_menu menu_tree="{{ item.col_4.menu }}" %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endif %}
+
+
+

@@ -1,0 +1,13 @@
+{
+  "global" : false,
+  "icon" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/module-icons/icon-social-share.svg",
+  "host_template_types" : [ "PAGE", "BLOG_POST", "BLOG_LISTING" ],
+  "module_id" : 63101744680,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/row-social-share.css",
+    "name" : "row-social-share.css"
+  } ],
+  "label" : "Row - Social Sharing",
+  "is_available_for_new_content" : true
+}

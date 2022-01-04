@@ -1,0 +1,15 @@
+{
+  "label" : "CLEAN-6-1-theme revamp",
+  "preview_path" : "./templates/clean-6-1-home-opt-1.html",
+  "screenshot_path" : "./images/screenshots/clean-theme-screenshot.jpg",
+  "enable_domain_stylesheets" : false,
+  "is_available_for_new_content" : true,
+  "version" : "16",
+  "author" : {
+    "name" : "Helpful Hero",
+    "email" : "kevin@helpfulhero.com",
+    "url" : "http://www.helpfulhero.com"
+  },
+  "documentation_url" : "https://hubs.ly/H0sPvqt0",
+  "example_url" : "https://hubs.ly/H0ssSK60"
+}

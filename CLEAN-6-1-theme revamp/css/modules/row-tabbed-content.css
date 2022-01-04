@@ -1,0 +1,110 @@
+.hhs-tab-mod {position: relative; z-index: 1;}
+.hhs-tab-mod .row {position: relative; z-index: 2;}
+.hhs-tab-mod .row {
+  z-index: 2;
+  position: relative;
+}
+
+.is-d-flex {
+  display: flex;
+}
+
+.hhs-tab-content {
+ width: 100%;
+  
+}
+
+.hhs-tab-content ul,
+.hhs-tab-content li {
+ margin: 0;
+  padding: 0;
+}
+
+.hhs-tab-content ul {
+ list-style-type: none; 
+}
+
+
+.hhs-tab-wrapper li {
+  flex: 1 1 0%;
+  border-left: 1px solid rgba(0,0,0,0.2);
+}
+
+.hhs-tab-wrapper li:first-child,
+.hhs-tab-wrapper li:not(:first-of-type) button {
+	 border-left: none; 
+}
+
+.hhs-tab-wrapper button {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  padding: 22px 10px 25px;
+  cursor: pointer;
+  height: 100%;
+}
+
+.hhs-tab-wrapper button:focus,
+.hhs-tab-wrapper button:active {
+   outline: none;
+}
+
+.hhs-tab-wrapper button.is-active {
+   border-bottom-color: transparent;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.is-active {
+  display: block; 
+}
+
+.selected-tab {
+  position: relative;
+  padding: 22px 35px 25px 15px;
+  line-height: 30px;
+}
+
+.selected-tab:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #747474;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@media (max-width: 575px) {
+  .is-d-flex {
+    display: block;
+  }
+  ul.tabs li {
+		display: block;
+		text-align: left;
+		padding: 0;
+  }
+  .tab-to-dropdown {
+		position: relative;
+	}
+  .converted-tab {
+		position: absolute;
+		z-index: 10;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background: #fff;
+	}
+}
+
+
+

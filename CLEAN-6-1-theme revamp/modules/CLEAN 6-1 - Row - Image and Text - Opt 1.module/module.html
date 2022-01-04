@@ -1,0 +1,236 @@
+{# 
+ NAME: IMAGE AND TEXT OPT 1
+ MODULE VERSION: 3.0
+ CLEAN VERSION: 6.1
+ LAST UPDATED: 1/25/21
+ REMINDER: You Rock!
+#}
+
+{% require_css %}
+<style>
+  
+  /******************************* ROW STYLE *******************************/
+  
+  #hs_cos_wrapper_{{ name }} .hhs-img-text-mod {
+    background-color: rgba({{ module.row_settings.bg_color.color|convert_rgb }}, {{ module.row_settings.bg_color.opacity * 0.01 }});
+  }
+  
+  /* SHADOW */
+  
+  {% if module.row_settings.shadow == 'outer' %}
+    #hs_cos_wrapper_{{ name }} {
+      position: relative;
+      z-index: 1;
+    }
+    #hs_cos_wrapper_{{ name }} .outer-shadow {
+     -webkit-box-shadow: 0 0 {{ module.row_settings.shadow_size }}px 1px rgba({{ module.row_settings.shadow_color.color|convert_rgb }}, {% if module.row_settings.shadow_color.opacity == '100' %}1{% else %}0.{{ module.row_settings.shadow_color.opacity }}{% endif %});
+      box-shadow: 0 0 {{ module.row_settings.shadow_size }}px 1px rgba({{ module.row_settings.shadow_color.color|convert_rgb }}, {% if module.row_settings.shadow_color.opacity == '100' %}1{% else %}0.{{ module.row_settings.shadow_color.opacity }}{% endif %});   
+      z-index: 1;
+      position: relative;
+    }
+  {% elif module.row_settings.shadow == 'inner' %}
+    #hs_cos_wrapper_{{ name }} .inner-shadow {
+      -webkit-box-shadow:inset 0 0 {{ module.row_settings.shadow_size }}px 1px rgba({{ module.row_settings.shadow_color.color|convert_rgb }}, {% if module.row_settings.shadow_color.opacity == '100' %}1{% else %}0.{{ module.row_settings.shadow_color.opacity }}{% endif %});
+      box-shadow:inset 0 0 {{ module.row_settings.shadow_size }}px 1px rgba({{ module.row_settings.shadow_color.color|convert_rgb }}, {% if module.row_settings.shadow_color.opacity == '100' %}1{% else %}0.{{ module.row_settings.shadow_color.opacity }}{% endif %});
+    }
+  {% endif %}
+  
+  /******************************* END *******************************/
+  
+  /******************************* IMAGE COLUMN *******************************/
+   
+   #hs_cos_wrapper_{{ name }} .hhs-bg-image.lazy-background {
+    z-index: 0;
+    position: relative;
+    background-image:  url("https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/lazy-imgs/lazy-img-800x500.png");
+     background-size: cover;
+  }
+  
+  #hs_cos_wrapper_{{ name }} .hhs-bg-image.lazy-background.visible {
+    background-image: url('{{ module.content.image.src }}'); 
+  }
+  
+  #hs_cos_wrapper_{{ name }} .hhs-reg-image {display: none;}
+  
+  /******************************* END *******************************/
+  
+  /******************************* TEXT COLUMN *******************************/
+  
+  #hs_cos_wrapper_{{ name }} .hhs-rich-text {
+    padding-top: {{ module.row_settings.adv_settings.padding_top }};
+    padding-bottom:  {{ module.row_settings.adv_settings.padding_bottom }};
+    padding-right: {{ module.content.text_padding_right_left }}px;
+    padding-left: {{ module.content.text_padding_right_left }}px;
+  }
+  
+  #hs_cos_wrapper_{{ name }} .hhs-rich-text h1, #hs_cos_wrapper_{{ name }} .hhs-rich-text h2,#hs_cos_wrapper_{{ name }} .hhs-rich-text h3, #hs_cos_wrapper_{{ name }} .hhs-rich-text h4, #hs_cos_wrapper_{{ name }} .hhs-rich-text h5, #hs_cos_wrapper_{{ name }} .hhs-rich-text h6, #hs_cos_wrapper_{{ name }} .hhs-rich-text p, #hs_cos_wrapper_{{ name }} .hhs-rich-text span, #hs_cos_wrapper_{{ name }} .hhs-rich-text li {
+    {% if module.content.custom_text_color %}color:  {{ module.content.text_color.color }};{% endif %}
+    text-align: {{ module.content.text_align }};
+  }
+  
+  #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h1, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img.overlay-img h2,#hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h3, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h4, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h5, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h6 {
+    z-index: 10;
+    position: relative;
+    margin-{{ module.start.img_col }}: -{{ module.content.advanced.text_slider }}px;
+    {% if module.content.advanced.header_cutout %}
+      background-color: {{ module.row_settings.bg_color.color }};
+      padding: {{ module.content.advanced.cutout_size }}px; 
+      {% if module.start.img_col == 'right' %}
+        padding-left: 0px;
+      {% endif %}
+    {% endif %}
+  }
+  
+  #hs_cos_wrapper_{{ name }} .hhs-divider.overlay-img {
+    margin-{{ module.start.img_col }}: -{{ module.content.advanced.text_slider }}px !important;
+    text-align: {{ module.start.img_col }};
+  }
+  
+  /* DIVIDER */
+  
+  {% if module.content.settings.custom_divider_color %}
+    #hs_cos_wrapper_{{ name }} .hhs-divider{
+      border-color: {{ module.content.settings.divider_color.color }};
+    }
+  {% endif %}
+  {% if module.content.text_align == 'center' %}
+    #hs_cos_wrapper_{{ name }} .hhs-divider {margin: 0 auto 50px;}
+  {% elif module.content.text_align == 'left' %}
+    #hs_cos_wrapper_{{ name }} .hhs-divider {margin: 0 0 50px;}
+  {% elif module.content.text_align == 'right' %}
+    #hs_cos_wrapper_{{ name }} .hhs-divider {float: right;}
+  {% endif %}
+  
+  #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img {
+   position: relative;
+   z-index: 10;
+  }
+  
+  /******************************* END *******************************/
+  
+  /******************************* TABLET *******************************/
+  
+  @media (max-width: 768px) {
+    #hs_cos_wrapper_{{ name }} .hhs-rich-text {
+      padding-top: {{ module.row_settings.adv_settings.padding_top_tablet }};
+      padding-bottom: {{ module.row_settings.adv_settings.padding_bottom_tablet }};
+      padding-right: {{ module.content.text_padding_right_left_tablet }}px;
+      padding-left: {{ module.content.text_padding_right_left_tablet }}px;
+    }
+    #hs_cos_wrapper_{{ name }} .hhs-bg-image {background-image: none; }
+    #hs_cos_wrapper_{{ name }} .hhs-reg-image {display: block;}
+    #hs_cos_wrapper_{{ name }} .hhs-divider.overlay-img {
+      margin-{{ module.start.img_col }}: unset !important;
+      text-align: {{ module.content.text_align_mobile }};
+    }
+    #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h1, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img.overlay-img h2,#hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h3, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h4, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h5, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h6 {
+      z-index: 1;
+      position: relative;
+      margin-{{ module.start.img_col }}: unset;
+      background-color: none;
+      padding: 0 !important; 
+    }
+  }
+  
+  /******************************* END *******************************/
+  
+  /******************************* MOBILE *******************************/
+  
+  @media (max-width: 575px) {
+    #hs_cos_wrapper_{{ name }} .hhs-rich-text {
+      padding-top: {{ module.row_settings.adv_settings.padding_top_mobile }};
+      padding-bottom: {{ module.row_settings.adv_settings.padding_bottom_mobile }};
+      padding-right: {{ module.content.text_padding_right_left_mobile }}px;
+      padding-left: {{ module.content.text_padding_right_left_mobile }}px;
+    }
+    #hs_cos_wrapper_{{ name }} .hhs-rich-text h1, #hs_cos_wrapper_{{ name }} .hhs-rich-text h2,#hs_cos_wrapper_{{ name }} .hhs-rich-text h3, #hs_cos_wrapper_{{ name }} .hhs-rich-text h4, #hs_cos_wrapper_{{ name }} .hhs-rich-text h5, #hs_cos_wrapper_{{ name }} .hhs-rich-text h6, #hs_cos_wrapper_{{ name }} .hhs-rich-text p, #hs_cos_wrapper_{{ name }} .hhs-rich-text span, #hs_cos_wrapper_{{ name }} .hhs-rich-text li {
+      text-align: {{ module.content.text_align_mobile }};
+    }
+    {% if module.content.settings.img_first_mobile == 'true' %}
+     #hs_cos_wrapper_{{ name }} .order-1-mobile {order: 1;}
+     #hs_cos_wrapper_{{ name }} .order-2-mobile {order: 2;}
+    {% endif %}
+    
+    #hs_cos_wrapper_{{ name }} .hhs-bg-image {
+      background-image: none; 
+    }
+
+    #hs_cos_wrapper_{{ name }} .hhs-reg-image {display: block;}
+    
+    #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h1, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img.overlay-img h2,#hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h3, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h4, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h5, #hs_cos_wrapper_{{ name }} .hhs-rich-text.overlay-img h6 {
+      z-index: 1;
+      position: relative;
+      margin-{{ module.start.img_col }}: unset;
+      background-color: none;
+      padding: 0 !important; 
+    }
+    #hs_cos_wrapper_{{ name }} .hhs-divider.overlay-img {
+      margin-{{ module.start.img_col }}: unset;
+      text-align: {{ module.content.text_align_mobile }};
+    }
+    #hs_cos_wrapper_{{ name }} .hhs-divider.overlay-img {
+      margin-{{ module.start.img_col }}: unset !important;
+    }
+    {% if module.content.text_align_mobile == 'center' %}
+      #hs_cos_wrapper_{{ name }} .hhs-divider {margin: 0 auto 50px; float: none;}
+    {% elif module.content.text_align_mobile == 'left' %}
+      #hs_cos_wrapper_{{ name }} .hhs-divider {margin: 0 0 50px; float: none;}
+    {% elif module.content.text_align_mobile == 'right' %}
+      #hs_cos_wrapper_{{ name }} .hhs-divider {float: right;}
+    {% endif %}
+  }
+</style>
+{% end_require_css %}
+
+
+{% if module.start.col_arrangement == "opt1" %}
+  {% set col_1_size = "col-lg-6 col-md-12" %}
+  {% set col_2_size = "col-lg-6 col-md-12" %}
+{% endif %}
+{% if module.start.col_arrangement == "opt2" %}
+  {% set col_1_size = "col-lg-4 col-md-12" %}
+  {% set col_2_size = "col-lg-8 col-md-12" %}
+{% endif %}
+{% if module.start.col_arrangement == "opt3" %}
+  {% set col_1_size = "col-lg-8 col-md-12" %}
+  {% set col_2_size = "col-lg-4 col-md-12" %}
+{% endif %}
+{% if module.start.col_arrangement == "opt4" %}
+  {% set col_1_size = "col-lg-5 col-md-12" %}
+  {% set col_2_size = "col-lg-7 col-md-12" %}
+{% endif %}
+{% if module.start.col_arrangement == "opt5" %}
+  {% set col_1_size = "col-lg-7 col-md-12" %}
+  {% set col_2_size = "col-lg-5 col-md-12" %}
+{% endif %}
+
+
+<div id="{{ module.row_settings.code.section_id }}" class="hhs-img-text-mod  {% if module.row_settings.visibility.vis_phone %}show-mobile{% else %}hide-mobile{% endif %} {% if module.row_settings.visibility.vis_tablet %}show-tablet{% else %}hide-tablet{% endif %} {% if module.row_settings.visibility.vis_desktop %}show-desktop{% else %}hide-desktop{% endif %}  {% if module.row_settings.shadow == 'inner' %}inner-shadow{% endif %} {% if module.row_settings.shadow == 'outer' %}outer-shadow{% endif %} {{ module.row_settings.code.section_class }}">
+  <div class="container-fluid no-gutters">
+    <div class="row no-gutters">
+      <div class="{% if module.start.img_col == 'left' %}{{ col_2_size }} order-2{% else %}{{ col_1_size }}{% endif %} {{ col_1_order }} {% if module.content.settings.img_first_mobile %}order-2-mobile{% endif %}">
+        <div class="hhs-rich-text wow {{ module.content.settings.animate_text }} {% if module.content.advanced.layer_img %}overlay-img{% endif %}" data-wow-delay="{{ module.content.settings.text_animation_delay }}">
+          {% if module.content.settings.show_divider %}<div class="hhs-divider {% if module.content.advanced.layer_img %}overlay-img{% endif %}" >&nbsp;</div>{% endif %}
+          <div class="hhs-rich-text-in">
+            {{ module.content.text }}
+          </div>
+        </div>
+      </div>
+      <div class="hhs-bg-image lazy-background {% if module.start.img_col == 'left' %}{{ col_1_size }} order-1{% else %}{{ col_2_size }}{% endif %}  {% if module.content.settings.img_first_mobile %}order-1-mobile{% endif %} no-padding">
+        <div>
+          {% if module.content.image.src %}
+            {% set sizeAttrs = 'width="{{ module.content.image.width }}" height="{{ module.content.image.height }}"' %}
+            {% if module.content.image.size_type == 'auto' %}
+              {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+            {% elif module.content.image.size_type == 'auto_custom_max' %}
+              {% set sizeAttrs = 'width="100%" height="auto" style="max-width: {{ module.content.image.max_width }}px; max-height: {{ module.content.image.max_height }}px"' %}
+            {% endif %}
+             {% set loadingAttr = module.content.image.loading != 'disabled' ? 'loading="{{ module.content.image.loading }}"' : '' %}
+            <img class="hhs-reg-image wow fadeIn"  src="{{ module.content.image.src }}" alt="{{ module.content.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

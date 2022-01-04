@@ -1,0 +1,134 @@
+{# 
+ NAME: ITEM - CARD FLIPPER
+ MODULE VERSION: 2.0
+ CLEAN VERSION: 6.1
+ LAST UPDATED: 1/25/21
+ REMINDER: You Rock!
+#}
+{% require_css %}
+<style>
+  /******************************* CARD STYLE *******************************/
+  
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod {
+    height: {{ module.card.card_height }}px;
+  }
+  
+  @media (max-width: 768px) {
+    #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod {
+      height: {{ module.card.card_height_tablet }}px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod {
+      height: {{ module.card.card_height_mobile }}px;
+    }
+  }
+  
+  {% if module.card.add_shadow %}
+    #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .contents {
+      -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,0.10);
+      box-shadow: 0 0 15px 0 rgba(0,0,0,0.10); 
+    }
+  {% endif %}
+  
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .front, #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .back {
+    border: 1px solid rgba({{ module.card.border_color.color|convert_rgb }}, {% if module.card.border_color.opacity == '100' %}1{% else %}0.{{ module.card.border_color.opacity }}{% endif %});
+  }
+  
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-img {
+    {% if module.front.text_align == 'center' %}
+      margin: 0 auto;
+    {% elif module.front.text_align == 'right'   %}
+      margin-right: 0px;
+      margin-left: auto;
+    {% endif %}
+    display: block;
+  }
+  
+   /******************************* END *******************************/
+  
+   /******************************* FRONT *******************************/
+  
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .front {
+    background: {{ module.front.bg_color.color }};
+  }
+  
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .front .plus-minus i {
+    color: {{ module.front.plus_color.color }};
+  }
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .front h4 {
+    font-size: {{ module.front.font_size }}px;
+    color: {{ module.front.text_color.color }};
+    font-weight: {{ module.front.font_weight }};
+    padding-top: {{ module.front.text_pt }}px;
+    text-align: {{ module.front.text_align }};
+  }
+  
+  /******************************* END *******************************/
+  
+   /******************************* BACK *******************************/
+  
+  
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .back p,
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .back li,
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .back h1,
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .back h2,
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .back h3,
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .back h4,
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .back h5{
+    color: {{ module.back.text_color.color }};
+    padding-top: {{ module.back.text_pt }}px;
+    text-align: {{ module.back.text_align }};
+  }
+  
+  
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .back .plus-minus i {
+    color: {{ module.back.minus_color.color }};
+  }
+  
+  #hs_cos_wrapper_{{ name }} .hhs-card-flip-mod .tile .back {
+    {% if module.back.bg_type == 'color' %}
+      background: {{ module.back.bg_color.color }};
+    {% else %}
+      background: {{ module.back.gradient_color_1.color }};
+      background: -moz-linear-gradient({{ module.back.gradient_angle }}, {{ module.back.gradient_color_1.color }} 0%, {{ module.back.gradient_color_2.color }} 100%);
+      background: -webkit-linear-gradient({{ module.back.gradient_angle }}, {{ module.back.gradient_color_1.color }} 0%, {{ module.back.gradient_color_2.color }} 100%);
+      background: linear-gradient({{ module.back.gradient_angle }}, {{ module.back.gradient_color_1.color }} 0%, {{ module.back.gradient_color_2.color }} 100%);
+    {% endif %}
+  }
+  
+   /******************************* END *******************************/
+</style>
+{% end_require_css %}
+
+{% require_js %}
+<script>
+  $("#hs_cos_wrapper_{{ name }}").flip({
+    trigger: '{{ module.card.flip_trigger }}'
+  });
+</script>
+{% end_require_js %}
+
+
+<div class="hhs-card-flip-mod" >
+  <div id="#hs_cos_wrapper_{{ name }}" class="tile" >
+    <div class="front">
+      <div class="contents">
+        {% if module.front.image.src %}<img class="hhs-card-flip-img lazy wow fadeIn" src="https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/lazy-imgs/lazy-img-200x200.png" data-src="{{ module.front.image.src }}" data-srcset="{{ module.front.image.src }}" alt="{{ module.front.image.alt }}" width="{{ module.front.image.width }}" height="{{ module.front.image.height }}">{% endif %}
+        <h4>{{ module.front.text }}</h4>
+        <span class="plus-minus">
+          <i class="fas fa-plus"></i>
+        </span>
+      </div>
+    </div>
+    <div class="back">
+      <div class="contents">
+        <p>{{ module.back.rich_text }}</p>
+        <span class="plus-minus">
+          <i class="fas fa-minus"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

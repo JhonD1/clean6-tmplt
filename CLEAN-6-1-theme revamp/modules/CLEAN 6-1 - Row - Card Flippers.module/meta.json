@@ -1,0 +1,18 @@
+{
+  "global" : false,
+  "icon" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/module-icons/icon-card-flipper.svg",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 63101643864,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/row-card-flippers.css",
+    "name" : "row-card-flippers.css"
+  } ],
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../js/card-flipper.js",
+    "name" : "card-flipper.js"
+  } ],
+  "label" : "Row - Card Flippers",
+  "is_available_for_new_content" : true
+}

@@ -1,0 +1,22 @@
+{
+  "global" : false,
+  "icon" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/module-icons/icon-hero-slider-1.svg",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 63101641631,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/hero-slider.css",
+    "name" : "hero-slider.css"
+  } ],
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../js/slider-flickity.js",
+    "name" : "slider-flickity.js"
+  }, {
+    "autoload" : true,
+    "path" : "../../js/slider-flickity-bg-lazy.js",
+    "name" : "slider-flickity-bg-lazy.js"
+  } ],
+  "label" : "Hero Slider",
+  "is_available_for_new_content" : true
+}

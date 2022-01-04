@@ -1,0 +1,157 @@
+{# 
+ NAME: CONTENT FILTER OPT 1
+ MODULE VERSION: 2.0
+ CLEAN VERSION: 6.1
+ LAST UPDATED: 1/25/21
+ REMINDER: You Rock!
+#}
+
+{% require_css %}
+<style>
+  
+  /******************************* ROW STYLE *******************************/
+  
+  #hs_cos_wrapper_{{ name }} .hhs-content-filter-mod {
+    padding-top: {{ module.row_settings.adv_settings.padding_top }};
+    padding-bottom:  {{ module.row_settings.adv_settings.padding_bottom }};
+    background-color: rgba({{ module.row_settings.bg_color.color|convert_rgb }}, {{ module.row_settings.bg_color.opacity * 0.01 }});
+  }
+  
+  @media (max-width: 768px) {
+    #hs_cos_wrapper_{{ name }} .hhs-content-filter-mod {
+      padding-top: {{ module.row_settings.adv_settings.padding_top_tablet }};
+      padding-bottom: {{ module.row_settings.adv_settings.padding_bottom_tablet }};
+    }
+  }
+  @media (max-width: 575px) {
+    #hs_cos_wrapper_{{ name }} .hhs-content-filter-mod {
+      padding-top: {{ module.row_settings.adv_settings.padding_top_mobile }};
+      padding-bottom: {{ module.row_settings.adv_settings.padding_bottom_mobile }};
+      text-align:  {{ module.style.filter_options.alignment }};
+    }
+  }
+  
+  /* SHADOW */
+  
+  {% if module.row_settings.shadow == 'outer' %}
+    #hs_cos_wrapper_{{ name }} {
+      position: relative;
+      z-index: 1;
+    }
+    #hs_cos_wrapper_{{ name }} .outer-shadow {
+     -webkit-box-shadow: 0 0 {{ module.row_settings.shadow_size }}px 1px rgba({{ module.row_settings.shadow_color.color|convert_rgb }}, {% if module.row_settings.shadow_color.opacity == '100' %}1{% else %}0.{{ module.row_settings.shadow_color.opacity }}{% endif %});
+      box-shadow: 0 0 {{ module.row_settings.shadow_size }}px 1px rgba({{ module.row_settings.shadow_color.color|convert_rgb }}, {% if module.row_settings.shadow_color.opacity == '100' %}1{% else %}0.{{ module.row_settings.shadow_color.opacity }}{% endif %});   
+      z-index: 1;
+      position: relative;
+    }
+  {%- elif module.row_settings.shadow == 'inner' -%}
+    #hs_cos_wrapper_{{ name }} .inner-shadow {
+      -webkit-box-shadow:inset 0 0 {{ module.row_settings.shadow_size }}px 1px rgba({{ module.row_settings.shadow_color.color|convert_rgb }},{% if module.row_settings.shadow_color.opacity == '100' %}1{% else %}0.{{ module.row_settings.shadow_color.opacity }}{% endif %});
+      box-shadow:inset 0 0 {{ module.row_settings.shadow_size }}px 1px rgba({{ module.row_settings.shadow_color.color|convert_rgb }}, {% if module.row_settings.shadow_color.opacity == '100' %}1{% else %}0.{{ module.row_settings.shadow_color.opacity }}{% endif %});
+    }
+  {%- endif -%}
+  
+  /******************************* END *******************************/
+  
+  /******************************* CARD STYLE *******************************/
+  
+  #hs_cos_wrapper_{{ name }} .content-desc {
+    background-color: rgba({{  module.style.content_card.card_bg_color.color|convert_rgb }},{% if module.style.content_card.card_bg_color.opacity == '100' %}1{% else %}0.{{  module.style.content_card.card_bg_color.opacity }}{% endif %});
+  }
+  
+  #hs_cos_wrapper_{{ name }} .filter-opt-2 .content-card-opt2 {
+    height: {{ module.style.content_card.card_height }}px;
+  }
+  
+  @media (max-width: 768px) {
+    #hs_cos_wrapper_{{ name }} .filter-opt-2 .content-card-opt2 {
+      height: {{ module.style.content_card.card_height_tablet }}px;
+    }
+  }
+  @media (max-width: 575px) {
+    #hs_cos_wrapper_{{ name }} .filter-opt-2 .content-card-opt2 {
+      height: {{ module.style.content_card.card_height_mobile }}px;
+    }
+  }
+  
+  /* TEXT */
+  
+  #hs_cos_wrapper_{{ name }} .content-desc h4 {
+    color: {{ module.style.content_card.title_color.color }};
+  }
+  
+  #hs_cos_wrapper_{{ name }} .content-desc h6 {
+    color: {{ module.style.content_card.type_color.color }};
+  }
+  
+  /* FILTER */
+  
+  #hs_cos_wrapper_{{ name }} .contentFilter {text-align: {{ module.style.filter_options.alignment }};}
+  #hs_cos_wrapper_{{ name }} .contentFilter button {
+    border-bottom: 1px solid {{ module.row_settings.bg_color.color }};
+    {% if module.style.filter_options.custom_text_color %}
+      color: {{ module.style.filter_options.text_color.color }};
+    {% endif %}
+    
+  }
+  
+  #hs_cos_wrapper_{{ name }} .contentFilter button.is-checked {border-bottom: 1px solid {{ module.style.filter_options.active_color.color }};}
+
+</style>
+{% end_require_css %}
+
+
+<div id="{{ module.row_settings.code.section_id }}" class="hhs-content-filter-mod filter-opt-2 filter-button-group {% if module.row_settings.visibility.vis_phone %}show-mobile{% else %}hide-mobile{% endif %} {% if module.row_settings.visibility.vis_tablet %}show-tablet{% else %}hide-tablet{% endif %} {% if module.row_settings.visibility.vis_desktop %}show-desktop{% else %}hide-desktop{% endif %}  {% if module.row_settings.shadow == 'inner' %}inner-shadow{% endif %} {% if module.row_settings.shadow == 'outer' %}outer-shadow{% endif %} {{ module.row_settings.code.section_class }}">
+  <div class="{{ module.row_settings.content_width }}" style="{% if module.row_settings.content_width == 'custom' %} max-width: {{ module.row_settings.set_width }}px; margin: auto;{% endif %}">
+    <div class="row">
+      <div class="col-md-4">
+        <input type="text" class="quicksearch" placeholder="Search" />
+      </div>
+      <div class="col-md-8 filters">
+        <div class="contentFilter clearfix button-group">
+          <button href="#" data-filter="*" class="button is-checked">All</button>
+          {% for item in module.filters %}
+            <button href="#" class="button" data-filter=".{{ item.filter_class }}" >{{ item.filter_name }}</button>     
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="contentContainer grid">
+            <div class="gutter-sizer"></div> {# ADL - Used To Size The Gutters Using Isotope #}
+            <div class="grid-sizer"></div> {# ADL - Used To Size The Cards Using Isotope #}
+          {% for item in module.content_item %}
+          {% set href = item.link_card_to.url.href %}
+          {% if item.link_card_to.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+          {% endif %}
+          {% set rel = [] %}
+          {% if item.link_card_to.no_follow %}
+          {% do rel.append("nofollow") %}
+          {% endif %}
+          {% if item.link_card_to.open_in_new_tab %}
+          {% do rel.append("noopener") %}
+          {% endif %}
+            <a href="{{ href }}" data-category="{{ item.content_class }}" class="{{ item.content_class }} content-card-opt2 element-item" {% if item.link_card_to.open_in_new_tab %}target="_blank"{% endif %}{% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
+              <div class="content-desc">
+                <img class="wow fadeIn"
+                   src="{{ item.card_image.src }}"
+                   alt="{{ item.title }}">
+                <div class="content-inner">
+                  <h6>{{ item.subtitle }}</h6>
+                  <h4>{{ item.title }}</h4>
+                  <p>{{ item.summary_text }}</p>
+                </div>
+              </div>
+            </a>
+              
+            {# ADL - Changed To An Image So you Can Lazy Load It Easily #}
+            
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

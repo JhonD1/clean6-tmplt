@@ -1,0 +1,67 @@
+/* Slider */
+.content-group {display: none; width: 100%;}
+.flickity-enabled .content-group {display: block;}  {# /* ADL */ #}
+
+.scrolling-testimonials .flickity-viewport {
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  -o-transition: height 0.2s;
+  -ms-transition: height 0.2s;
+  transition: height 0.2s;
+}
+
+.scrolling-testimonials.flickity-enabled .content-group { text-align:center; outline: none;}
+.scrolling-testimonials.flickity-enabled .content-group  img{ display:inline-block; vertical-align:middle;}
+
+.scrolling-testimonials .flickity-prev-next-button:focus{ outline: none;}
+.scrolling-testimonials .flickity-prev-next-button:hover{ opacity:0.4;}
+
+.scrolling-testimonials button.previous,
+.scrolling-testimonials button.next {
+   position: absolute;
+   top: 50%;
+   margin-top: -31px;
+}
+
+.scrolling-testimonials button.previous { 
+  left: -60px; 
+  transform: rotate(45deg);
+}
+.scrolling-testimonials button.next { 
+  right: -60px; 
+  transform: rotate(-135deg);
+}
+
+.scrolling-testimonials button.previous svg,
+.scrolling-testimonials button.next svg {
+  display: none; 
+}
+
+.scrolling-testimonials .flickity-page-dots li.is-selected { 
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  -ms-transition: all 400ms ease-in-out;
+  -o-transition: all 400ms ease-in-out;
+  transition: all 400ms ease-in-out;
+}
+
+.scrolling-testimonials .flickity-page-dots {
+ position: static;
+  margin-top: 25px;
+}
+
+.scrolling-testimonials blockquote {
+  border-left: 0px;
+  padding-left: 0px;
+}
+
+.test-name {
+ font-weight: bold; 
+}
+
+@media screen and (max-width: 768px) {
+  .scrolling-testimonials button.previous,
+  .scrolling-testimonials button.next { 
+   display: none !important; 
+  }
+}

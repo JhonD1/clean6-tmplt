@@ -1,0 +1,19 @@
+{
+  "global" : true,
+  "smart_type" : "NOT_SMART",
+  "icon" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/module-icons/icon-header.svg",
+  "host_template_types" : [ "PAGE", "BLOG_POST", "BLOG_LISTING" ],
+  "module_id" : 63101743663,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/global-header.css",
+    "name" : "global-header.css"
+  } ],
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../js/mega-menu.js",
+    "name" : "mega-menu.js"
+  } ],
+  "label" : "Global Header",
+  "is_available_for_new_content" : true
+}

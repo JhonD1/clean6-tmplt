@@ -1,0 +1,56 @@
+{% if module.use_alt_nav %}
+  {% require_js %}
+    <script>
+      var element = document.getElementById("hhs-main-nav");
+      element.classList.add("hhs-alt-nav");
+    </script>
+  {% end_require_js %}
+{% endif %}
+
+{% require_css %}
+<style>
+{% if module.use_alt_nav and module.nav_trans %}
+  .hhs-header-mod.hhs-alt-nav {
+   background: transparent ; 
+  }
+{% endif %}
+  
+{% if module.hide_nav %}
+	.hhs-hat-menu,
+  .hhs-nav-opt-items,
+  .hhs-hat-pull-down{
+    display: none !important;
+    visibility: hidden;
+    opacity: 0;
+  }
+{% endif %}
+{% if module.hide_footer %}
+	.hhs-foot-nav-cols,
+  .hhs-social-con,
+  .hhs-foot-break-line{
+    display: none !important;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .hhs-footer-mod {
+   padding-top: 25px !important; 
+   padding-bottom: 25px !important; 
+  }
+{% endif %}
+
+{% if module.hide_nav and module.logo_center %}
+  .hhs-nav .hhs-header-logo {display:block; !important}
+  .logo-standard,
+  .logo-sticky {
+    margin: {{ module.logo_mt }}px auto 0;
+    display: block;
+    float: none !important;
+  }
+  .sticky-menu.active .logo-sticky {
+    margin-top: 0; 
+  }
+}
+{% endif %}
+  
+</style>
+{% end_require_css %}

@@ -1,0 +1,13 @@
+{
+  "global" : false,
+  "icon" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/module-icons/icon-price-table.svg",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 63101142828,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/row-price-comparison.css",
+    "name" : "row-price-comparison.css"
+  } ],
+  "label" : "Row - Price Comparison Table",
+  "is_available_for_new_content" : true
+}

@@ -1,0 +1,94 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  screenshotPath: ../images/screenshots/thank-you.jpg
+  label: Thank You
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+<main class="body-container-wrapper">
+  {% dnd_area "dnd_area" class='body-container', label='Main section' %}
+  
+  <!----------------------- HEADER FOOTER OVERRIDES  ----------------------->
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0,
+        'left': 0,
+        'right': 0
+      },
+      full_width='true',
+      vertical_alignment='MIDDLE'
+    %}
+      {% dnd_module "header_footer_overrides"
+        path="../modules/CLEAN 6-1 - Style - Header Footer Override",
+        label="CLEAN 6-1 - Style - Header Footer Override",
+        offset=0,
+        use_alt_nav=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+    
+<!----------------------- HERO BANNER  ----------------------->
+    {% dnd_section
+      padding={
+        'top': 0,
+        'bottom': 0,
+        'left': 0,
+        'right': 0
+      },
+      full_width='true',
+      vertical_alignment='MIDDLE'
+    %}
+      {% dnd_module "hero_baner_1"
+        path="../modules/CLEAN 6-1 - Hero Banner",
+        label="CLEAN 6-1 - Hero Banner",
+        offset=0
+      %}
+        {% module_attribute "start" is_json=True %} 
+          {
+            "num_cols": "1"
+          }
+        {% end_module_attribute %}
+        {% module_attribute "col_1" is_json=True %}
+          {
+            "rotating_text": false,
+            "content": "<h1>Thank You!</h1><h4>This is a perfect template to direct people to after they fill out one of your forms. Its super flexible should you want to promote a secondary offer.&nbsp;</h4>",
+            "style": {
+              "content_align": "center",
+              "font_color": {
+                "color": "#444444",
+                "opacity": 100
+              }
+            }
+          }
+        {% end_module_attribute %}
+        {% module_attribute "row_settings" is_json=True %}
+          {
+            "bg_type": "color",
+            "bg_color": {
+              "color": "#ffffff",
+              "opacity": 100
+            },
+            "overlay_bg": "none",
+            "content_width": "container-slim",
+            "full_screen_bg": true,
+            "adv_settings": {
+              "padding_top": "200px",
+              "padding_bottom": "200px",
+              "padding_top_tablet": "100px",
+              "padding_bottom_tablet": "100px",
+              "padding_top_mobile": "50px",
+              "padding_bottom_mobile": "50px"
+            }
+          }
+        {% end_module_attribute %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+</main>
+{% endblock body %}
+
+

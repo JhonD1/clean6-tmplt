@@ -1,0 +1,608 @@
+{%- require_css -%}
+<style>
+  #hs_cos_wrapper_{{ name }} .hhs-footer-mod {
+    background-color: {{ module.style_options.bg_color.color }};
+    padding-top: {{ module.row_settings.adv_settings.padding_top }};
+    padding-bottom: {{ module.row_settings.adv_settings.padding_bottom }};
+  }
+
+  /** NAVIGATION COLUMNS STYLE **/
+  .hhs-foot-base-nav .hs-menu-wrapper.hs-menu-flow-horizontal > ul li a,
+  .hhs-foot-nav-col .hs-menu-wrapper.hs-menu-flow-horizontal>ul li.hs-item-has-children ul.hs-menu-children-wrapper li a,
+  .hhs-foot-nav-col .hs-menu-wrapper.hs-menu-flow-horizontal > ul li a {
+    color: {{ module.style_options.link_color.color }} !important;
+  }
+  .hhs-foot-base-nav .hs-menu-wrapper.hs-menu-flow-horizontal > ul li a:hover,
+  .hhs-foot-nav-col .hs-menu-wrapper.hs-menu-flow-horizontal>ul li.hs-item-has-children ul.hs-menu-children-wrapper li a:hover,
+  .hhs-foot-nav-col .hs-menu-wrapper.hs-menu-flow-horizontal > ul li a:hover {
+    color: {{ module.style_options.link_hover_color.color }}  !important;
+  }
+  .foot-nav-title,
+  .hhs-foot-rss h5,
+  .hhs-foot-nav-col h5 {
+    margin-bottom: {{ module.style_options.col_title_mb }}px;
+    color: {{ module.style_options.col_title_color.color }};
+  }
+
+  .hhs-foot-rss .hs_cos_wrapper_type_inline_rich_text p,
+  .hhs-foot-rss .hs_cos_wrapper_type_inline_rich_text l1,
+  .hhs-foot-rss .hs_cos_wrapper_type_inline_rich_text span,
+  .hhs-foot-rss .hs_cos_wrapper_type_inline_rich_text *,
+  .hhs-foot-rss *{
+    color: {{ module.style_options.text_color.color }};
+  }
+  
+  .hhs-foot-base-nav .hs-menu-wrapper.hs-menu-flow-horizontal > ul li a {
+    font-size: {{ module.style_options.base_link_text_size }}px;
+  }
+
+  /** BLOG POST STYLE **/
+  .hhs-footer-mod .hhs-post-content a h6  {
+    color: {{ module.style_options.post_title_color.color }};
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .hhs-footer-mod .hhs-post-summary p  {
+    color: {{ module.style_options.text_color.color }};
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .hhs-foot-rss .hs-rss-title:hover {
+    color: {{ module.style_options.post_title_color_hover.color }};
+  }
+   .hhs-footer-mod .hhs-post-feat-img {
+    min-height: {{ module.style_options.post_feat_img_height }}px;
+  }
+  .hhs-foot-rss .hs-rss-item.hs-with-featured-image .hs-rss-item-text  {
+   margin-top: {{ module.style_options.post_feat_img_height }}px;
+  }
+  .hhs-foot-break-line {
+    border-color:  {{ module.style_options.line_color.color }};
+  }
+  .hhs-foot-copyright {
+    color: {{ module.style_options.copyright_color.color }};
+  }
+
+  /** SOCIAL ICONS **/
+  {%- if module.style_options.custom_icon_color -%}
+    #hs_cos_wrapper_{{ name }} .hhs-social-con i { color:  {{ module.style_options.icon_color.color }};}
+    #hs_cos_wrapper_{{ name }} .hhs-social-con i:hover {color:  {{ module.style_options.icon_color_hover.color }};}
+  {%- endif -%}
+  /** TABLET CSS **/
+  @media (max-width: 768px) {
+    #hs_cos_wrapper_{{ name }} .hhs-footer-mod {
+      padding-top: {{ module.row_settings.adv_settings.padding_top_tablet }};
+      padding-bottom: {{ module.row_settings.adv_settings.padding_bottom_tablet }};
+    }
+  }
+
+  /** BACK TO TOP **/
+  #return-to-top {
+   background: rgba({{ module.style_options.back_to_top_color.color|convert_rgb }}, 0.7);
+  }
+  #return-to-top:hover {
+   background: rgba({{ module.style_options.back_to_top_color.color|convert_rgb }}, 0.9);
+  }
+
+  /** MOBILE CSS **/
+  @media (max-width: 575px) {
+    #hs_cos_wrapper_{{ name }} .hhs-footer-mod {
+      padding-top: {{ module.row_settings.adv_settings.padding_top_mobile }};
+      padding-bottom: {{ module.row_settings.adv_settings.padding_bottom_mobile }};
+    }
+    .hhs-foot-nav-col {
+     border-color: {{ module.style_options.line_color.color }};
+    }
+  }
+</style>
+{%- end_require_css -%}
+
+
+{%- if module.start.num_cols == '2' -%}
+  {%- if module.start.two_col_arrangement == "opt1" -%}
+    {%- set col_1_size = "col-sm-6 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-sm-6 col-12 col-md-6" -%}
+  {%- endif -%}
+  {%- if module.start.two_col_arrangement == "opt2" -%}
+    {%- set col_1_size = "col-sm-4 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-sm-8 col-12 col-md-6" -%}
+  {%- endif -%}
+  {%- if module.start.two_col_arrangement == "opt3" -%}
+    {%- set col_1_size = "col-sm-8 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-sm-4 col-12 col-md-6" -%}
+  {%- endif -%}
+  {%- if module.start.two_col_arrangement == "opt4" -%}
+    {%- set col_1_size = "col-sm-5 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-sm-7 col-12 col-md-6" -%}
+  {%- endif -%}
+  {%- if module.start.two_col_arrangement == "opt5" -%}
+    {%- set col_1_size = "col-sm-7 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-sm-5 col-12 col-md-6" -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if module.start.num_cols == '3' -%}
+  {%- if module.start.three_col_arrangement == "opt1" -%}
+    {%- set col_1_size = "col-md-4 col-12" -%}
+    {%- set col_2_size = "col-md-4 col-12" -%}
+    {%- set col_3_size = "col-md-4 col-12" -%}
+  {%- endif -%}
+  {%- if module.start.three_col_arrangement == "opt2" -%}
+    {%- set col_1_size = "col-md-6 col-12" -%}
+    {%- set col_2_size = "col-md-3 col-12" -%}
+    {%- set col_3_size = "col-md-3 col-12" -%}
+  {%- endif -%}
+  {%- if module.start.three_col_arrangement == "opt3" -%}
+    {%- set col_1_size = "col-md-3 col-12" -%}
+    {%- set col_2_size = "col-md-3 col-12" -%}
+    {%- set col_3_size = "col-md-6 col-12" -%}
+  {%- endif -%}
+  {%- if module.start.three_col_arrangement == "opt4" -%}
+    {%- set col_1_size = "col-md-3 col-12" -%}
+    {%- set col_2_size = "col-md-6 col-12" -%}
+    {%- set col_3_size = "col-md-3 col-12" -%}
+  {%- endif -%}
+  {%- if module.start.three_col_arrangement == "opt5" -%}
+    {%- set col_1_size = "col-md-8 col-12" -%}
+    {%- set col_2_size = "col-md-2 col-12" -%}
+    {%- set col_3_size = "col-md-2 col-12" -%}
+  {%- endif -%}
+  {%- if module.start.three_col_arrangement == "opt6" -%}
+    {%- set col_1_size = "col-md-2 col-12" -%}
+    {%- set col_2_size = "col-md-2 col-12" -%}
+    {%- set col_3_size = "col-md-8 col-12" -%}
+  {%- endif -%}
+  {%- if module.start.three_col_arrangement == "opt7" -%}
+    {%- set col_1_size = "col-md-2 col-12" -%}
+    {%- set col_2_size = "col-md-8 col-12" -%}
+    {%- set col_3_size = "col-md-2 col-12" -%}
+  {%- endif -%}
+{%- endif -%}
+
+
+{%- if module.start.num_cols == '4' -%}
+  {%- if module.start.four_col_arrangement == "opt1" -%}
+    {%- set col_1_size = "col-lg-3 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-lg-3 col-12 col-md-6" -%}
+    {%- set col_3_size = "col-lg-3 col-12 col-md-6" -%}
+    {%- set col_4_size = "col-lg-3 col-12 col-md-6" -%}
+  {%- endif -%}
+  {%- if module.start.four_col_arrangement == "opt2" -%}
+    {%- set col_1_size = "col-lg-6 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-lg-2 col-12 col-md-6" -%}
+    {%- set col_3_size = "col-lg-2 col-12 col-md-6" -%}
+    {%- set col_4_size = "col-lg-2 col-12 col-md-6" -%}
+  {%- endif -%}
+  {%- if module.start.four_col_arrangement == "opt3" -%}
+    {%- set col_1_size = "col-lg-2 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-lg-2 col-12 col-md-6" -%}
+    {%- set col_3_size = "col-lg-2 col-12 col-md-6" -%}
+    {%- set col_4_size = "col-lg-6 col-12 col-md-6" -%}
+  {%- endif -%}
+  {%- if module.start.four_col_arrangement == "opt4" -%}
+    {%- set col_1_size = "col-lg-5 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-lg-3 col-12 col-md-6" -%}
+    {%- set col_3_size = "col-lg-2 col-12 col-md-6" -%}
+    {%- set col_4_size = "col-lg-2 col-12 col-md-6" -%}
+  {%- endif -%}
+  {%- if module.start.four_col_arrangement == "opt5" -%}
+    {%- set col_1_size = "col-lg-2 col-12 col-md-6" -%}
+    {%- set col_2_size = "col-lg-2 col-12 col-md-6" -%}
+    {%- set col_3_size = "col-lg-3 col-12 col-md-6" -%}
+    {%- set col_4_size = "col-lg-5 col-12 col-md-6" -%}
+  {%- endif -%}
+{%- endif -%}
+
+
+{%- if module.rss_feed_type == "external" -%}
+  {%- set feed_source = "{is_external=True, rss_url='"~module.rss_url~"', content_group_id=''}" -%}
+  {%- set is_external = true -%}
+{%- elif module.rss_feed_type == "blog" -%}
+  {%- set feed_source = "{is_external=False, content_group_id='" ~ module.content_group_id ~ "', rss_url=''}" -%}
+  {%- set is_external = false -%}
+{%- endif -%}
+
+{%- set related_posts_1 = blog_recent_tag_posts(module.nav_col_1.blog, module.nav_col_1.tag, 1) -%}
+{%- set related_posts_2 = blog_recent_tag_posts(module.nav_col_2.blog, module.nav_col_2.tag, 1) -%}
+{%- set related_posts_3 = blog_recent_tag_posts(module.nav_col_3.blog, module.nav_col_3.tag, 1) -%}
+{%- set related_posts_4 = blog_recent_tag_posts(module.nav_col_4.blog, module.nav_col_4.tag, 1) -%}
+
+{%- require_js -%}
+<script defer>
+var txt = "";
+txt += "<p>Browser CodeName: " + navigator.appCodeName + "</p>";
+txt += "<p>Browser Name: " + navigator.appName + "</p>";
+txt += "<p>Browser Version: " + navigator.appVersion + "</p>";
+txt += "<p>Cookies Enabled: " + navigator.cookieEnabled + "</p>";
+txt += "<p>Browser Language: " + navigator.language + "</p>";
+txt += "<p>Browser Online: " + navigator.onLine + "</p>";
+txt += "<p>Platform: " + navigator.platform + "</p>";
+txt += "<p>User-agent header: " + navigator.userAgent + "</p>";
+
+</script>
+{%- end_require_js -%}
+
+
+<div id="{{ module.row_settings.code.section_id }}" class="hhs-footer-mod {{ module.row_settings.code.section_class }}">
+  <div class="{{ module.row_settings.content_width }}">
+    {%- if module.start.footer_type == 'max' -%}
+       <div class="row hhs-foot-nav-cols">
+          {%- if module.start.num_cols >= '2' -%}
+          <div class="{{ col_1_size }}">
+            <div class="hhs-foot-nav-col hhs-foot-rss nav-col-1">
+              {%- if module.start.translate -%}
+                {%- for item in module.nav_col_1.translated -%}
+                  {%- if item.lang_url == i18n_getlanguage() -%}
+                    <h5 class="hide-mobile">{{ item.title_translated }}</h5>
+                    <button class="foot-nav-title col-head-1 hide-desktop hide-tablet show-mobile">{{ module.nav_col_1.title }}</button>
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- if i18n_getlanguage() == module.start.default_lang_url or i18n_getlanguage() == module.start.default_lang_url_blog -%}
+                  <h5 class="hide-mobile">{{ module.nav_col_1.title }}</h5>
+                  <button class="foot-nav-title col-head-1 hide-desktop hide-tablet show-mobile">{{ module.nav_col_1.title }}</button>
+                {%- endif -%}
+              {%- else -%}
+                <h5 class="hide-mobile">{{ module.nav_col_1.title }}</h5>
+                <button class="foot-nav-title col-head-1 hide-desktop hide-tablet show-mobile">{{ module.nav_col_1.title }}</button>
+              {%- endif -%}
+              <div class="hhs-col-content">
+                {%- if module.start.translate -%}
+                  {%- for item in module.nav_col_1.translated -%}
+                    {%- if item.lang_url == i18n_getlanguage() -%}
+                      {%- if module.nav_col_1.col_type == 'menu' -%}
+                        {%- simple_menu menu_tree="{{ item.nav_menu_translated }}" -%}
+                      {%- elif module.nav_col_1.col_type == 'text' -%}
+                        {%- inline_rich_text field="rich_text_translated" value="{{ item.rich_text_translated }}" -%}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- if i18n_getlanguage() == module.start.default_lang_url or i18n_getlanguage() == module.start.default_lang_url_blog  -%}
+                    {%- if module.nav_col_1.col_type == 'menu' -%}
+                      {%- simple_menu menu_tree="{{ module.nav_col_1.menu }}" -%}
+                    {%- elif module.nav_col_1.col_type == 'text' -%}
+                      {{ module.nav_col_1.rich_text }}
+                    {%- elif module.nav_col_1.col_type == 'blog' -%}
+                      {%- for post in related_posts_1 -%}
+                        <div class="hhs-blog-post-card-foot">
+                          <a href="{{ post.absolute_url }}">
+                            <div class="hhs-post-feat-img" style="background-image: url({{ post.featured_image }}); "></div>
+                          </a>
+                          <div class="hhs-post-content">
+                            <a href="{{ post.absolute_url }}"><h6>{{ post.name }}</h6></a>
+                            <div class="hhs-post-summary">
+                              {{ post.post_body|safe|truncatehtml(100, '...' , false)|replace('&#232;', ' ') }}
+                            </div>
+                          </div>
+                        </div>
+                      {%- endfor -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- else -%}
+                  {%- if module.nav_col_1.col_type == 'menu' -%}
+                    {%- simple_menu menu_tree="{{ module.nav_col_1.menu }}" -%}
+                  {%- elif module.nav_col_1.col_type == 'text' -%}
+                    {{ module.nav_col_1.rich_text }}
+                  {%- elif module.nav_col_1.col_type == 'blog' -%}
+                    {%- for post in related_posts_1 -%}
+                      <div class="hhs-blog-post-card-foot">
+                        <a href="{{ post.absolute_url }}">
+                          <div class="hhs-post-feat-img" style="background-image: url({{ post.featured_image }}); "></div>
+                        </a>
+                        <div class="hhs-post-content">
+                          <a href="{{ post.absolute_url }}"><h6>{{ post.name }}</h6></a>
+                          <div class="hhs-post-summary">
+                            {{ post.post_body|safe|truncatehtml(100, '...' , false)|replace('&#232;', ' ') }}
+                          </div>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+          <div class="{{ col_2_size }}">
+            <div class="hhs-foot-nav-col hhs-foot-rss nav-col-2">
+              {%- if module.start.translate -%}
+                {%- for item in module.nav_col_2.translated -%}
+                  {%- if item.lang_url == i18n_getlanguage() -%}
+                    <h5 class="hide-mobile">{{ item.title_translated }}</h5>
+                    <button class="foot-nav-title col-head-2 hide-desktop hide-tablet show-mobile">{{ module.nav_col_2.title }}</button>
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- if i18n_getlanguage() == module.start.default_lang_url or i18n_getlanguage() == module.start.default_lang_url_blog  -%}
+                  <h5 class="hide-mobile">{{ module.nav_col_2.title }}</h5>
+                  <button class="foot-nav-title col-head-2 hide-desktop hide-tablet show-mobile">{{ module.nav_col_2.title }}</button>
+                {%- endif -%}
+              {%- else -%}
+                <h5 class="hide-mobile">{{ module.nav_col_2.title }}</h5>
+                <button class="foot-nav-title col-head-2 hide-desktop hide-tablet show-mobile">{{ module.nav_col_2.title }}</button>
+              {%- endif -%}
+              <div class="hhs-col-content">
+                {%- if module.start.translate -%}
+                  {%- for item in module.nav_col_2.translated -%}
+                    {%- if item.lang_url == i18n_getlanguage() -%}
+                      {%- if module.nav_col_2.col_type == 'menu' -%}
+                        {%- simple_menu menu_tree="{{ item.nav_menu_translated }}" -%}
+                      {%- elif module.nav_col_2.col_type == 'text' -%}
+                        {%- inline_rich_text field="rich_text_translated" value="{{ item.rich_text_translated }}" -%}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- if i18n_getlanguage() == module.start.default_lang_url or i18n_getlanguage() == module.start.default_lang_url_blog  -%}
+                    {%- if module.nav_col_2.col_type == 'menu' -%}
+                      {%- simple_menu menu_tree="{{ module.nav_col_2.menu }}" -%}
+                    {%- elif module.nav_col_2.col_type == 'text' -%}
+                      {{ module.nav_col_2.rich_text }}
+                    {%- elif module.nav_col_2.col_type == 'blog' -%}
+                      {%- for post in related_posts_2 -%}
+                        <div class="hhs-blog-post-card-foot">
+                          <a href="{{ post.absolute_url }}">
+                            <div class="hhs-post-feat-img" style="background-image: url({{ post.featured_image }}); "></div>
+                          </a>
+                          <div class="hhs-post-content">
+                            <a href="{{ post.absolute_url }}"><h6>{{ post.name }}</h6></a>
+                            <div class="hhs-post-summary">
+                              {{ post.post_body|safe|truncatehtml(100, '...' , false)|replace('&#232;', ' ') }}
+                            </div>
+                          </div>
+                        </div>
+                      {%- endfor -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- else -%}
+                  {%- if module.nav_col_2.col_type == 'menu' -%}
+                    {%- simple_menu menu_tree="{{ module.nav_col_2.menu }}" -%}
+                  {%- elif module.nav_col_2.col_type == 'text' -%}
+                    {{ module.nav_col_2.rich_text }}
+                  {%- elif module.nav_col_2.col_type == 'blog' -%}
+                    {%- for post in related_posts_2 -%}
+                      <div class="hhs-blog-post-card-foot">
+                        <a href="{{ post.absolute_url }}">
+                          <div class="hhs-post-feat-img" style="background-image: url({{ post.featured_image }}); "></div>
+                        </a>
+                        <div class="hhs-post-content">
+                          <a href="{{ post.absolute_url }}"><h6>{{ post.name }}</h6></a>
+                          <div class="hhs-post-summary">
+                            {{ post.post_body|safe|truncatehtml(100, '...' , false)|replace('&#232;', ' ') }}
+                          </div>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if module.start.num_cols >= '3' -%}
+          <div class="{{ col_3_size }}">
+            <div class="hhs-foot-nav-col hhs-foot-rss nav-col-3">
+              {%- if module.start.translate -%}
+                {%- for item in module.nav_col_3.translated -%}
+                  {%- if item.lang_url == i18n_getlanguage() -%}
+                    <h5 class="hide-mobile">{{ item.title_translated }}</h5>
+                    <button class="foot-nav-title col-head-3 hide-desktop hide-tablet show-mobile">{{ module.nav_col_3.title }}</button>
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- if i18n_getlanguage() == module.start.default_lang_url or i18n_getlanguage() == module.start.default_lang_url_blog  -%}
+                  <h5 class="hide-mobile">{{ module.nav_col_3.title }}</h5>
+                  <button class="foot-nav-title col-head-3 hide-desktop hide-tablet show-mobile">{{ module.nav_col_3.title }}</button>
+                {%- endif -%}
+              {%- else -%}
+                <h5 class="hide-mobile">{{ module.nav_col_3.title }}</h5>
+                <button class="foot-nav-title col-head-3 hide-desktop hide-tablet show-mobile">{{ module.nav_col_3.title }}</button>
+              {%- endif -%}
+              <div class="hhs-col-content">
+                {%- if module.start.translate -%}
+                  {%- for item in module.nav_col_3.translated -%}
+                    {%- if item.lang_url == i18n_getlanguage() -%}
+                      {%- if module.nav_col_3.col_type == 'menu' -%}
+                        {%- simple_menu menu_tree="{{ item.nav_menu_translated }}" -%}
+                      {%- elif module.nav_col_3.col_type == 'text' -%}
+                        {%- inline_rich_text field="rich_text_translated" value="{{ item.rich_text_translated }}" -%}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- if i18n_getlanguage() == module.start.default_lang_url or i18n_getlanguage() == module.start.default_lang_url_blog  -%}
+                    {%- if module.nav_col_3.col_type == 'menu' -%}
+                      {%- simple_menu menu_tree="{{ module.nav_col_3.menu }}" -%}
+                    {%- elif module.nav_col_3.col_type == 'text' -%}
+                      {{ module.nav_col_3.rich_text }}
+                    {%- elif module.nav_col_3.col_type == 'blog' -%}
+                      {%- for post in related_posts_3 -%}
+                        <div class="hhs-blog-post-card-foot">
+                          <a href="{{ post.absolute_url }}">
+                            <div class="hhs-post-feat-img" style="background-image: url({{ post.featured_image }}); "></div>
+                          </a>
+                          <div class="hhs-post-content">
+                            <a href="{{ post.absolute_url }}"><h6>{{ post.name }}</h6></a>
+                            <div class="hhs-post-summary">
+                              {{ post.post_body|safe|truncatehtml(100, '...' , false)|replace('&#232;', ' ') }}
+                            </div>
+                          </div>
+                        </div>
+                      {%- endfor -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- else -%}
+                  {%- if module.nav_col_3.col_type == 'menu' -%}
+                    {%- simple_menu menu_tree="{{ module.nav_col_3.menu }}" -%}
+                  {%- elif module.nav_col_3.col_type == 'text' -%}
+                    {{ module.nav_col_3.rich_text }}
+                  {%- elif module.nav_col_3.col_type == 'blog' -%}
+                    {%- for post in related_posts_3 -%}
+                      <div class="hhs-blog-post-card-foot">
+                        <a href="{{ post.absolute_url }}">
+                          <div class="hhs-post-feat-img" style="background-image: url({{ post.featured_image }}); "></div>
+                        </a>
+                        <div class="hhs-post-content">
+                          <a href="{{ post.absolute_url }}"><h6>{{ post.name }}</h6></a>
+                          <div class="hhs-post-summary">
+                            {{ post.post_body|safe|truncatehtml(100, '...' , false)|replace('&#232;', ' ') }}
+                          </div>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if module.start.num_cols >= '4' -%}
+          
+          <div class="{{ col_4_size }}">
+            <div class="hhs-foot-nav-col hhs-foot-rss nav-col-4">
+              {%- if module.start.translate -%}
+                {%- for item in module.nav_col_4.translated -%}
+                  {%- if item.lang_url == i18n_getlanguage() -%}
+                    <h5 class="hide-mobile">{{ item.title_translated }}</h5>
+                    <button class="foot-nav-title col-head-4 hide-desktop hide-tablet show-mobile">{{ module.nav_col_4.title }}</button>
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- if i18n_getlanguage() == module.start.default_lang_url or i18n_getlanguage() == module.start.default_lang_url_blog  -%}
+                  <h5 class="hide-mobile">{{ module.nav_col_4.title }}</h5>
+                  <button class="foot-nav-title col-head-4 hide-desktop hide-tablet show-mobile">{{ module.nav_col_4.title }}</button>
+                {%- endif -%}
+              {%- else -%}
+                <h5 class="hide-mobile">{{ module.nav_col_4.title }}</h5>
+                <button class="foot-nav-title col-head-4 hide-desktop hide-tablet show-mobile">{{ module.nav_col_4.title }}</button>
+              {%- endif -%}
+              <div class="hhs-col-content">
+                {%- if module.start.translate -%}
+                  {%- for item in module.nav_col_4.translated -%}
+                    {%- if item.lang_url == i18n_getlanguage() -%}
+                      {%- if module.nav_col_4.col_type == 'menu' -%}
+                        {%- simple_menu menu_tree="{{ item.nav_menu_translated }}" -%}
+                      {%- elif module.nav_col_4.col_type == 'text' -%}
+                        {%- inline_rich_text field="rich_text_translated" value="{{ item.rich_text_translated }}" -%}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- if i18n_getlanguage() == module.start.default_lang_url or i18n_getlanguage() == module.start.default_lang_url_blog  -%}
+                    {%- if module.nav_col_4.col_type == 'menu' -%}
+                      {%- simple_menu menu_tree="{{ module.nav_col_4.menu }}" -%}
+                    {%- elif module.nav_col_4.col_type == 'text' -%}
+                      {{ module.nav_col_4.rich_text }}
+                    {%- elif module.nav_col_4.col_type == 'blog' -%}
+                      {%- for post in related_posts_4 -%}
+                        <div class="hhs-blog-post-card-foot">
+                          <a href="{{ post.absolute_url }}">
+                            <div class="hhs-post-feat-img" style="background-image: url({{ post.featured_image }}); "></div>
+                          </a>
+                          <div class="hhs-post-content">
+                            <a href="{{ post.absolute_url }}"><h6>{{ post.name }}</h6></a>
+                            <div class="hhs-post-summary">
+                              {{ post.post_body|safe|truncatehtml(100, '...' , false)|replace('&#232;', ' ') }}
+                            </div>
+                          </div>
+                        </div>
+                      {%- endfor -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- else -%}
+                  {%- if module.nav_col_4.col_type == 'menu' -%}
+                    {%- simple_menu menu_tree="{{ module.nav_col_4.menu }}" -%}
+                  {%- elif module.nav_col_4.col_type == 'text' -%}
+                    {{ module.nav_col_4.rich_text }}
+                  {%- elif module.nav_col_4.col_type == 'blog' -%}
+                    {%- for post in related_posts_4 -%}
+                      <div class="hhs-blog-post-card-foot">
+                        <a href="{{ post.absolute_url }}">
+                          <div class="hhs-post-feat-img" style="background-image: url({{ post.featured_image }}); "></div>
+                        </a>
+                        <div class="hhs-post-content">
+                          <a href="{{ post.absolute_url }}"><h6>{{ post.name }}</h6></a>
+                          <div class="hhs-post-summary">
+                            {{ post.post_body|safe|truncatehtml(100, '...' , false)|replace('&#232;', ' ') }}
+                          </div>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+    
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+    <div class="w-100 hhs-foot-break-line"></div>
+    <div class="row hhs-foot-nav-base" style="margin-bottom: 25px;">
+      <div class="col-sm-6 order-2-mobile">
+        {%- if module.minimal_footer.show_logo -%}
+          <div class="hhs-foot-logo">
+            {% set hreflogo = module.minimal_footer.logo_link.url.href %}
+              {% if module.minimal_footer.logo_link.url.type is equalto "EMAIL_ADDRESS" %}
+                {% set hreflogo = "mailto:" + href %}
+              {% endif %}
+              {% set rel = [] %}
+              {% if module.minimal_footer.logo_link.no_follow %}
+                {% do rel.append("nofollow") %}
+              {% endif %}
+              {% if module.minimal_footer.logo_link.open_in_new_tab %}
+                {% do rel.append("noopener") %}
+              {% endif %}
+              <a href="{{ hreflogo }}"
+                {% if module.minimal_footer.logo_link.open_in_new_tab %}target="_blank"{% endif %}
+                {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+                >
+                {% if module.minimal_footer.logo_img.src %}
+                  {% set sizeAttrs = 'width="{{ module.minimal_footer.logo_img.width }}" height="{{ module.minimal_footer.logo_img.height }}"' %}
+                  {% if module.minimal_footer.logo_img.size_type == 'auto' %}
+                    {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+                  {% elif module.minimal_footer.logo_img.size_type == 'auto_custom_max' %}
+                    {% set sizeAttrs = 'width="100%" height="auto" style="max-width: {{ module.minimal_footer.logo_img.max_width }}px; max-height: {{ module.minimal_footer.logo_img.max_height }}px"' %}
+                  {% endif %}
+                   {% set loadingAttr = module.minimal_footer.logo_img.loading != 'disabled' ? 'loading="{{ module.minimal_footer.logo_img.loading }}"' : '' %}
+                  <img src="{{ module.minimal_footer.logo_img.src }}" alt="{{ module.minimal_footer.logo_img.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+                {% endif %}
+              </a>
+          </div>
+        {%- endif -%}
+        <div class="hhs-foot-base-nav">
+          {%- if module.start.translate -%}
+            {%- for item in module.minimal_footer.translated -%}
+              {%- if item.lang_url == i18n_getlanguage() -%}
+                {%- simple_menu menu_tree="{{ item.menu_translated }}" -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if i18n_getlanguage() == module.start.default_lang_url or i18n_getlanguage() == module.start.default_lang_url_blog  -%}
+              {%- simple_menu menu_tree="{{ module.minimal_footer.menu_default }}" -%}
+            {%- endif -%}
+          {%- else -%}
+            {%- simple_menu menu_tree="{{ module.minimal_footer.menu_default }}" -%}
+          {%- endif -%}
+        </div>
+        <p class="hhs-foot-copyright">{{ module.minimal_footer.copyright }}</p>
+      </div>
+      <div class="col-sm-6 order-1-mobile">
+        {%- if module.start.sm_icons -%}
+          <div class="hhs-social-con">
+            {%- if module.social_media.facebook -%}
+              <a href="{{ module.social_media.fb_url.href }}" target="blank"><i class="fab fa-facebook-f"></i></a>
+            {%- endif -%}
+            {%- if module.social_media.twitter -%}
+              <a href="{{ module.social_media.tw_url.href }}" target="blank"><i class="fab fa-twitter"></i></a>
+            {%- endif -%}
+            {%- if module.social_media.instagram -%}
+              <a href="{{ module.social_media.ig_url.href }}" target="blank"><i class="fab fa-instagram"></i></a>
+            {%- endif -%}
+            {%- if module.social_media.linkedin -%}
+              <a href="{{ module.social_media.in_url.href }}" target="blank"><i class="fab fa-linkedin-in"></i></a>
+            {%- endif -%}
+            {%- if module.social_media.youtube -%}
+              <a href="{{ module.social_media.yt_url.href }}" target="blank"><i class="fab fa-youtube"></i></a>
+            {%- endif -%}
+            {%- if module.social_media.medium -%}
+              <a href="{{ module.social_media.md_url.href }}" target="blank"><i class="fab fa-medium-m"></i></a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+<a href="javascript:" id="return-to-top"><i class="fas fa-chevron-up"></i></a>

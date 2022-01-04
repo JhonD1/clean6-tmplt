@@ -1,0 +1,13 @@
+{
+  "global" : false,
+  "icon" : "https://cdn2.hubspot.net/hubfs/507386/CLEAN-images/module-icons/icon-image-text-2.svg",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 63101694117,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/modules/row-image-text-opt2.css",
+    "name" : "row-image-text-opt2.css"
+  } ],
+  "label" : "Row - Image and Text - Opt 2",
+  "is_available_for_new_content" : true
+}
